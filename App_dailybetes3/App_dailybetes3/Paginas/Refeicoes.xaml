@@ -108,7 +108,7 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
                                     <Button Grid.Row="0" Grid.Column="0" x:Name="jantar" Text="Adicionar refeição" FontSize="13" TextColor="white" FontAttributes="Bold" BackgroundColor="Transparent" HorizontalOptions="Start" VerticalOptions="Center" Clicked="Quinta_refeicao"/>
-                                    <Label Grid.Row="0" Grid.Column="1" Text="Horário: 20:00" FontSize="14" HorizontalOptions="End" VerticalOptions="Center" TextColor="White"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="Horário: 20h" FontSize="14" HorizontalOptions="End" VerticalOptions="Center" TextColor="White"/>
                                 </Grid>
                             </Frame>
                         </StackLayout>

@@ -25,11 +25,11 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
-_nugetassetstimestamp=638313584339471423
+_nugetassetstimestamp=638318619646956701
 typemapkind=strings-asm
 androidsupportedabis=arm64-v8a
 armeabi-v7a
 x86
 x86_64
 androidmanifestplaceholders=
-projectfullpath=c:\users\livia\downloads\app_dailybetes3\app_dailybetes3\app_dailybetes3\app_dailybetes3.android\app_dailybetes3.android.csproj
+projectfullpath=c:\users\livia\source\repos\app_dailybetes_certo\app_dailybetes3\app_dailybetes3.android\app_dailybetes3.android.csproj

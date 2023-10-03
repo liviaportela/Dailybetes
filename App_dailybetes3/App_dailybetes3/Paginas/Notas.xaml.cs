@@ -22,7 +22,7 @@ namespace App_dailybetes3.Paginas
             User.Consulta_todas_notas();
             CarregarListaNotas();
 
-            
+
         }
         public void CarregarListaNotas()
         {
@@ -30,7 +30,7 @@ namespace App_dailybetes3.Paginas
             User.Consulta_todas_notas();
 
             if (User.titulo_nota.Count > 0)
-              {
+            {
                 CVLista.ItemsSource = notas;
 
                 for (int i = 0; i < User.titulo_nota.Count; i++)
@@ -38,10 +38,10 @@ namespace App_dailybetes3.Paginas
                     notas.Add(new Lista_notas { adic_hoje = User.titulo_nota[i].ToString(), data1 = User.nota_data1[i].ToString() });
                 }
             }
-          else
-          {
-              stack_adicionadas_hoje.HeightRequest = 0;
-          }
+            else
+            {
+                stack_adicionadas_hoje.HeightRequest = 0;
+            }
 
             if (User.titulo_nota2.Count > 0)
             {
@@ -55,7 +55,7 @@ namespace App_dailybetes3.Paginas
             {
                 stack_notas.HeightRequest = 0;
             }
-            
+
         }
 
 
@@ -157,7 +157,7 @@ namespace App_dailybetes3.Paginas
 
         private void Abrir_menu_nota1(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Abrir_menu_nota2(object sender, EventArgs e)

@@ -6,7 +6,7 @@ namespace App_dailybetes3.Classes
     public class Graficos_por_periodo
     {
         Usuario User = new Usuario();
-        public string periodo { get; set; }
+        public string Periodo { get; set; }
         
     }
 }

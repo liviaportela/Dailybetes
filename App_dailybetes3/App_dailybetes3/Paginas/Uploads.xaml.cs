@@ -67,15 +67,12 @@ namespace App_dailybetes3.Paginas
         private void Selecionar_arquivo(object sender, EventArgs e)
         {
 
-
             var options = new PickOptions
             {
-                PickerTitle = "Please select a comic file",
-
+                PickerTitle = "Please select a file",
             };
 
             var resultado = PickAndShow(options);
-
         }
         private async Task<FileResult> PickAndShow(PickOptions options)
         {
@@ -111,11 +108,16 @@ namespace App_dailybetes3.Paginas
             Console.WriteLine(File.Exists(curFile) ? "File exists." : "File does not exist.");
             string arquivo_existente = curFile.ToString();
             User.Cadastrar_arquivos(arquivo_existente, nome_arquivo);
+            Teste();
+        }
+        public void Teste()
+        {
+            Navigation.PushAsync(new Uploads());
         }
 
         private void Abrir_arquivo(object sender, EventArgs e)
         {
-            
+
             Console.WriteLine(Button.CommandParameterProperty);
         }
 
@@ -206,7 +208,7 @@ namespace App_dailybetes3.Paginas
             coverLayout.IsVisible = false;
         }
 
-        
+
     }
 }
 

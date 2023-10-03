@@ -12,15 +12,15 @@ using Xamarin.Forms.Xaml;
 
 namespace App_dailybetes3.Paginas
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Insulina : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class Insulina : ContentPage
+    {
         Usuario User = new Usuario();
         ObservableCollection<Lista_insulina_obj> valores_insulina = new ObservableCollection<Lista_insulina_obj>();
         ObservableCollection<Lista_insulina_obj2> valores_insulina2 = new ObservableCollection<Lista_insulina_obj2>();
-        public Insulina ()
-		{
-			InitializeComponent ();
+        public Insulina()
+        {
+            InitializeComponent();
             User.Consulta_insulina();
             User.Consulta_insulina_diaria();
             if (User.insulina1.Count > 0)

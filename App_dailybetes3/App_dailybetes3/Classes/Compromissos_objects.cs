@@ -6,8 +6,8 @@ namespace App_dailybetes3.Classes
 {
     class Compromissos_objects
     {
-        public string tarefa { get; set; }
-        public string data { get; set; }
-        public string hora { get; set; }
+        public string Tarefa { get; set; }
+        public string Data { get; set; }
+        public string Hora { get; set; }
     }
 }

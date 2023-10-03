@@ -91,8 +91,8 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding tarefa}" TextColor="White" FontSize="16" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
-                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding hora}" TextColor="White" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Tarefa}" TextColor="White" FontSize="16" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Hora}" TextColor="White" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
                                 </Grid>
                             </Frame>
                         </StackLayout>

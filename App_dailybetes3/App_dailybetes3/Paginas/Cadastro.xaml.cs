@@ -25,7 +25,17 @@ namespace App_dailybetes3.Paginas
             if (entry_senha_cadastrar.Text == entry_senha_confirm.Text)
             {
                 User.CadastrarUsuarios(entry_nome_cadastrar.Text, entry_senha_cadastrar.Text);
-                Btm_voltar_login(sender, e);
+
+                if (User.Usuario_existente > 0)
+                {
+                    await DisplayAlert("Aviso", "Usuário já existente", "OK");
+                    User.Usuario_existente = 0;
+                }
+                else
+                {
+                    await Navigation.PushAsync(new Login());
+                }
+
             }
             else
             {

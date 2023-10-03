@@ -14,15 +14,15 @@ using Xamarin.Forms.Xaml;
 
 namespace App_dailybetes3.Paginas
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Configuracoes : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class Configuracoes : ContentPage
+    {
         Usuario User = new Usuario();
-		public Configuracoes ()
-		{
-			InitializeComponent ();
-            label_nome.Text = "" +Usuario.Email.ToString();
-		}
+        public Configuracoes()
+        {
+            InitializeComponent();
+            label_nome.Text = "" + Usuario.Email.ToString();
+        }
 
         private void Tb_visaogeral(object sender, EventArgs e)
         {
@@ -131,22 +131,22 @@ namespace App_dailybetes3.Paginas
 
             //SyncFusion.xamarin.Pdf
             //Create a new PDF document.
-       //     PdfDocument document = new PdfDocument();
-       //     //Add a page to the document.
-       //     PdfPage page = document.Pages.Add();
-       //     //Create PDF graphics for the page.
-       //     PdfGraphics graphics = page.Graphics;
-       //     //Set the standard font.
-       //     PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
-       //     //Draw the text.
-       //     graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
-       //     //Save the document to the stream.
-       //     MemoryStream stream = new MemoryStream();
-       //     document.Save(stream);
-       //     //Close the document.
-       //     document.Close(true);
-       //     //Save the stream as a file in the device and invoke it for viewing.
-     //     Xamarin.Forms.DependencyService.Get<SaveAndroid>().SaveAndView("Output.pdf", "application / pdf", stream);
+            //     PdfDocument document = new PdfDocument();
+            //     //Add a page to the document.
+            //     PdfPage page = document.Pages.Add();
+            //     //Create PDF graphics for the page.
+            //     PdfGraphics graphics = page.Graphics;
+            //     //Set the standard font.
+            //     PdfFont font = new PdfStandardFont(PdfFontFamily.Helvetica, 20);
+            //     //Draw the text.
+            //     graphics.DrawString("Hello World!!!", font, PdfBrushes.Black, new PointF(0, 0));
+            //     //Save the document to the stream.
+            //     MemoryStream stream = new MemoryStream();
+            //     document.Save(stream);
+            //     //Close the document.
+            //     document.Close(true);
+            //     //Save the stream as a file in the device and invoke it for viewing.
+            //     Xamarin.Forms.DependencyService.Get<SaveAndroid>().SaveAndView("Output.pdf", "application / pdf", stream);
 
             Navigation.PushAsync(new Relatorio_glicemia());
         }

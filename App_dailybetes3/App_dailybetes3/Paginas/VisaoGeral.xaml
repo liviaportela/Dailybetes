@@ -60,12 +60,12 @@
                             <forms:ChartView x:Name="grafico2" WidthRequest="360" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Margin="-20,-10,-60,-115" IsVisible="false"/>
                             <forms:ChartView x:Name="grafico3" WidthRequest="360" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Margin="-20,-10,-60,-115" IsVisible="false"/>
 
-                            <Label x:Name="label_gr1" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" TextColor="Gray" FontSize="18" Margin="0,0,0,-10"/>
-                            <Label x:Name="label_gr2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" TextColor="Gray" FontSize="18" Margin="0,0,0,-10"/>
-                            <Label x:Name="label_gr3" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" TextColor="Gray" FontSize="18" Margin="0,0,0,-10"/>
-                            <Label x:Name="label_gr4" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" TextColor="Gray" FontSize="18" Margin="0,0,0,-10"/>
-                            <Label x:Name="label_gr5" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" TextColor="Gray" FontSize="18" Margin="0,0,0,-10"/>
-                            <Label x:Name="label_gr6" Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="2" TextColor="Gray" FontSize="18" Margin="0,0,0,-10"/>
+                            <Label x:Name="label_gr1" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" TextColor="Gray" FontSize="18" Margin="15,0,0,-10"/>
+                            <Label x:Name="label_gr2" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" TextColor="Gray" FontSize="18" Margin="15,0,0,-10"/>
+                            <Label x:Name="label_gr3" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" TextColor="Gray" FontSize="18" Margin="15,0,0,-10"/>
+                            <Label x:Name="label_gr4" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" TextColor="Gray" FontSize="18" Margin="15,0,0,-10"/>
+                            <Label x:Name="label_gr5" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" TextColor="Gray" FontSize="18" Margin="15,0,0,-10"/>
+                            <Label x:Name="label_gr6" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="2" TextColor="Gray" FontSize="18" Margin="15,0,0,-10"/>
                         </Grid>
                     </Frame>
                     <Label Text="NÍVEIS DE GLICOSE NO SANGUE mg/dl"  TextColor="#367DC5" FontSize="15" FontAttributes="Bold" HorizontalTextAlignment="End" Margin="0,-10,20,0"/>
@@ -181,7 +181,7 @@
                 <Frame Grid.Row="0" Grid.Column="3" BackgroundColor="Transparent" CornerRadius="20" Padding="0" HasShadow="False">
                     <ImageButton Source="icon_glicemia" Clicked="Tb_glicemia" BackgroundColor="Transparent" Aspect="AspectFit"/>
                 </Frame>
-                <Frame Grid.Row="0" Grid.Column="4" BackgroundColor="Transparent" CornerRadius="20" Padding="0" HasShadow="False">
+                <Frame Grid.Row="0" Grid.Column="4" Scale="1.0" BackgroundColor="Transparent" CornerRadius="20" Padding="0" HasShadow="False">
                     <ImageButton Source="icon_conteudo" Clicked="Tb_conteudo" BackgroundColor="Transparent" Aspect="AspectFit"/>
                 </Frame>
             </Grid>

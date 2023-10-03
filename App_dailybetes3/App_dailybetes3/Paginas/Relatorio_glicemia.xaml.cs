@@ -42,7 +42,7 @@ namespace App_dailybetes3.Paginas
             string downloadsPath = await fileService.GetDownloadsPathAsync();
 
             // Crie o caminho completo para o arquivo PDF
-            string pdfFileName = "Glicemia.pdf";
+            string pdfFileName = "Relatório_glicemia.pdf";
             string pdfPath = Path.Combine(downloadsPath, pdfFileName);
 
             // Gere o PDF usando o caminho correto
@@ -55,8 +55,10 @@ namespace App_dailybetes3.Paginas
                 // Adicione conteúdo ao PDF (dados fictícios)
                 for (int i = 0; i < User.vl_glicemia.Count; i++)
                 {
+
                     document.Add(new Paragraph("         " + User.vl_glicemia[i] + "                      " + User.vl_data_glicemia[i] + "           " + User.vl_hora_glicemia[i]));
                 }
+
                 document.Close();
             }
 

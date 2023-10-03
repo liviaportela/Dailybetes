@@ -44,7 +44,7 @@ namespace App_dailybetes3.Paginas
             string downloadsPath = await fileService.GetDownloadsPathAsync();
 
             // Crie o caminho completo para o arquivo PDF
-            string pdfFileName = "Refeicoes.pdf";
+            string pdfFileName = "Relatório_refeições.pdf";
             string pdfPath = Path.Combine(downloadsPath, pdfFileName);
 
             // Gere o PDF usando o caminho correto
@@ -54,10 +54,12 @@ namespace App_dailybetes3.Paginas
                 var pdf = new PdfDocument(writer);
                 var document = new Document(pdf);
                 document.Add(new Paragraph("   Resultado              Data                  Horário"));
+                // Adicione conteúdo ao PDF (dados fictícios)
                 for (int i = 0; i < User.vl_refeicao.Count; i++)
                 {
-                    document.Add(new Paragraph("         " + User.vl_refeicao[i] + "                      " + User.vl_data_refeicao[i] + "           " + User.vl_hora_refeicao[i]));
+                    document.Add(new Paragraph("        " + User.vl_hora_refeicao[i] + "             " + User.vl_data_refeicao[i] + "           " + User.vl_refeicao[i]));
                 }
+
                 document.Close();
             }
 

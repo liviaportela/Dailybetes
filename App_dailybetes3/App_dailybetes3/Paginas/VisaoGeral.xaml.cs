@@ -1,4 +1,4 @@
-﻿ using SkiaSharp;
+﻿using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using Entry = Microcharts.ChartEntry;
@@ -23,8 +23,8 @@ namespace App_dailybetes3.Paginas
         public VisaoGeral()
         {
             InitializeComponent();
-            User.Consulta_compromissos_hoje();
             User.Consulta_tabela_glicemia_diariamente();
+            User.Consulta_compromissos_hoje();
             int contador = User.tarefas.Count;
             if (contador == 0)
             {
@@ -37,7 +37,7 @@ namespace App_dailybetes3.Paginas
                     compromissos_obj2.Add(new Compromissos_objects2 { Tarefa2 = User.tarefas[i].ToString(), Hora2 = User.tarefas_hora[i].ToString() });
                 }
             }
-            
+
             Carousel1.ItemsSource = compromissos_obj2;
 
             User.Consulta_refeicoes();
@@ -45,7 +45,8 @@ namespace App_dailybetes3.Paginas
             if (contador2 == 0)
             {
                 stack_carousel2.HeightRequest = 0;
-            }else
+            }
+            else
             {
                 for (int i = 0; i < User.refeicoes_descricao.Count; i++)
                 {
@@ -109,7 +110,7 @@ namespace App_dailybetes3.Paginas
             };
 
             User.Consulta_tabela_glicemia_mensalmente();
-             List<Entry> entries3 = new List<Entry>
+            List<Entry> entries3 = new List<Entry>
             {
                 new Entry(Int32.Parse(User.valores_glicemia_mensalmente[0]))
                 {
@@ -135,22 +136,34 @@ namespace App_dailybetes3.Paginas
                 },
             };
 
+            //         graficos_por_periodo = new ObservableCollection<Graficos_por_periodo>
+            //         {
+            //             new Graficos_por_periodo{periodo = "Diariamente"},
+            //             new Graficos_por_periodo{periodo = "Semanalmente"},
+            //             new Graficos_por_periodo{periodo = "Mensalmente"}
+            //         };
+            //
+            //         Carrousel.ItemsSource = graficos_por_periodo;
+
             label_gr1.Text = "8h";
             label_gr2.Text = "10h";
             label_gr3.Text = "11h";
             label_gr4.Text = "12h";
             label_gr5.Text = "18h";
-            label_gr6.Text = "20h";
+            label_gr5.Text = "20h";
 
             grafico1.Chart = new Microcharts.LineChart() { Entries = entries1, BackgroundColor = SKColors.Transparent, PointSize = 20, Margin = 3, LineMode = Microcharts.LineMode.Straight, MinValue = 0, MaxValue = 300 };
             grafico2.Chart = new Microcharts.LineChart() { Entries = entries2, BackgroundColor = SKColors.Transparent, PointSize = 20, Margin = 3, LineMode = Microcharts.LineMode.Straight, MinValue = 0, MaxValue = 300 };
             grafico3.Chart = new Microcharts.LineChart() { Entries = entries3, BackgroundColor = SKColors.Transparent, PointSize = 20, Margin = 3, LineMode = Microcharts.LineMode.Straight, MinValue = 0, MaxValue = 300 };
+
 
             //Grafico.Chart = new Microcharts.LineChart() { Entries = entries1, BackgroundColor = SKColors.Transparent, PointSize = 20, Margin = 3, LineMode = Microcharts.LineMode.Straight, MinValue = 0, MaxValue = 300 };
             var date_now = DateTime.Now;
             lb_data.Text = "Hoje " + date_now.Day + "/" + date_now.Month;
             lb_hora.Text = String.Format("Hoje {0:t}", date_now);
         }
+
+
 
         private void Tb_visaogeral(object sender, EventArgs e)
         {
@@ -241,26 +254,25 @@ namespace App_dailybetes3.Paginas
             {
                 num_grafico = 0;
             }
-            
+
             if (num_grafico == 0)
             {
                 periodo.Text = "Diariamente";
-                animation2();
+                Animation2();
                 grafico1.IsVisible = true;
                 grafico2.IsVisible = false;
                 grafico3.IsVisible = false;
                 label_gr1.Text = "8h";
-                label_gr2.Text = "10h";
-                label_gr3.Text = "11h";
-                label_gr4.Text = "12h";
-                label_gr5.Text = "18h";
+                label_gr2.Text = "11h";
+                label_gr3.Text = "12h";
+                label_gr4.Text = "16h";
                 label_gr5.Text = "20h";
 
             }
             if (num_grafico == 1)
             {
                 periodo.Text = "Semanalmente";
-                animation2();
+                Animation2();
                 grafico1.IsVisible = false;
                 grafico2.IsVisible = true;
                 grafico3.IsVisible = false;
@@ -269,12 +281,11 @@ namespace App_dailybetes3.Paginas
                 label_gr3.Text = "QUA";
                 label_gr4.Text = "";
                 label_gr5.Text = "SEX";
-                label_gr6.Text = "";
             }
             if (num_grafico == 2)
             {
                 periodo.Text = "Mensalmente";
-                animation2();
+                Animation2();
                 grafico1.IsVisible = false;
                 grafico2.IsVisible = false;
                 grafico3.IsVisible = true;
@@ -283,7 +294,6 @@ namespace App_dailybetes3.Paginas
                 label_gr3.Text = "21d";
                 label_gr4.Text = "28d";
                 label_gr5.Text = "35d";
-                label_gr5.Text = "";
             }
         }
 
@@ -294,11 +304,11 @@ namespace App_dailybetes3.Paginas
             {
                 num_grafico = 2;
             }
-            
+
             if (num_grafico == 0)
             {
                 periodo.Text = "Diariamente";
-                animation();
+                Animation();
                 grafico1.IsVisible = true;
                 grafico2.IsVisible = false;
                 grafico3.IsVisible = false;
@@ -306,13 +316,12 @@ namespace App_dailybetes3.Paginas
                 label_gr2.Text = "11h";
                 label_gr3.Text = "12h";
                 label_gr4.Text = "16h";
-                label_gr5.Text = "18h";
-                label_gr6.Text = "20h";
+                label_gr5.Text = "20h";
             }
             if (num_grafico == 1)
             {
                 periodo.Text = "Semanalmente";
-                animation();
+                Animation();
                 grafico1.IsVisible = false;
                 grafico2.IsVisible = true;
                 grafico3.IsVisible = false;
@@ -321,12 +330,11 @@ namespace App_dailybetes3.Paginas
                 label_gr3.Text = "QUA";
                 label_gr4.Text = "";
                 label_gr5.Text = "SEX";
-                label_gr6.Text = "";
             }
             if (num_grafico == 2)
             {
                 periodo.Text = "Mensalmente";
-                animation();
+                Animation();
                 grafico1.IsVisible = false;
                 grafico2.IsVisible = false;
                 grafico3.IsVisible = true;
@@ -335,16 +343,16 @@ namespace App_dailybetes3.Paginas
                 label_gr3.Text = "21d";
                 label_gr4.Text = "28d";
                 label_gr5.Text = "35d";
-                label_gr6.Text = "";
             }
         }
-        public async void animation()
+        public async void Animation()
         {
             uint timeout = 250;
             await frame_grafico.TranslateTo(-400, 0, timeout);
 
             frame_grafico.TranslationX = 0;
-        }public async void animation2()
+        }
+        public async void Animation2()
         {
             uint timeout = 250;
             await frame_grafico.TranslateTo(400, 0, timeout);

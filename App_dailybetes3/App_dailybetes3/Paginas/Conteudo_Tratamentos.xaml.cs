@@ -9,13 +9,13 @@ using Xamarin.Forms.Xaml;
 
 namespace App_dailybetes3.Paginas
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Conteudo_Tratamentos : ContentPage
-	{
-		public Conteudo_Tratamentos ()
-		{
-			InitializeComponent ();
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class Conteudo_Tratamentos : ContentPage
+    {
+        public Conteudo_Tratamentos()
+        {
+            InitializeComponent();
+        }
         private void Tb_visaogeral(object sender, EventArgs e)
         {
             Navigation.PushAsync(new VisaoGeral());

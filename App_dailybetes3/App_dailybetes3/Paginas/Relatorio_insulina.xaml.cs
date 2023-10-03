@@ -31,6 +31,7 @@ namespace App_dailybetes3.Paginas
                 relatorio.Add(new Obj_relatorio_insulina { nivel_insulina = User.vl_insulina[i].ToString(), data = User.vl_data_insulina[i] });
             }
         }
+
         private async void GeneratePDFButton_Clicked(object sender, EventArgs e)
         {
             // Solicite permissão de armazenamento
@@ -42,7 +43,7 @@ namespace App_dailybetes3.Paginas
             string downloadsPath = await fileService.GetDownloadsPathAsync();
 
             // Crie o caminho completo para o arquivo PDF
-            string pdfFileName = "Insulina.pdf";
+            string pdfFileName = "Relatório_insulina.pdf";
             string pdfPath = Path.Combine(downloadsPath, pdfFileName);
 
             // Gere o PDF usando o caminho correto
@@ -55,8 +56,10 @@ namespace App_dailybetes3.Paginas
                 // Adicione conteúdo ao PDF (dados fictícios)
                 for (int i = 0; i < User.vl_insulina.Count; i++)
                 {
+
                     document.Add(new Paragraph("         " + User.vl_insulina[i] + "                      " + User.vl_data_insulina[i] + "           "));
                 }
+
                 document.Close();
             }
 

@@ -6146,11 +6146,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\livia\\Downloads\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3.Android\\App_dailybetes3.Android.csproj",
+      "projectUniqueName": "C:\\Users\\livia\\source\\repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3.Android\\App_dailybetes3.Android.csproj",
       "projectName": "App_dailybetes3.Android",
-      "projectPath": "C:\\Users\\livia\\Downloads\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3.Android\\App_dailybetes3.Android.csproj",
+      "projectPath": "C:\\Users\\livia\\source\\repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3.Android\\App_dailybetes3.Android.csproj",
       "packagesPath": "C:\\Users\\livia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\livia\\Downloads\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3.Android\\obj\\",
+      "outputPath": "C:\\Users\\livia\\source\\repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -6170,8 +6170,8 @@
       "frameworks": {
         "monoandroid13.0": {
           "projectReferences": {
-            "C:\\Users\\livia\\Downloads\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3.csproj": {
-              "projectPath": "C:\\Users\\livia\\Downloads\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3.csproj"
+            "C:\\Users\\livia\\source\\repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3.csproj": {
+              "projectPath": "C:\\Users\\livia\\source\\repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3.csproj"
             }
           }
         }
@@ -6184,21 +6184,9 @@
             "target": "Package",
             "version": "[0.9.5.9, )"
           },
-          "Microcharts.Forms": {
-            "target": "Package",
-            "version": "[0.9.5.9, )"
-          },
           "MySqlConnector": {
             "target": "Package",
             "version": "[2.2.6, )"
-          },
-          "MySqlConnector": {
-            "target": "Package",
-            "version": "[2.2.6, )"
-          },
-          "SlideOverKit": {
-            "target": "Package",
-            "version": "[2.1.6.2, )"
           },
           "SlideOverKit": {
             "target": "Package",
@@ -6208,14 +6196,6 @@
             "target": "Package",
             "version": "[0.1.0, )"
           },
-          "Xam.iTextSharpLGPL": {
-            "target": "Package",
-            "version": "[0.1.0, )"
-          },
-          "Xamarin.Essentials": {
-            "target": "Package",
-            "version": "[1.7.7, )"
-          },
           "Xamarin.Essentials": {
             "target": "Package",
             "version": "[1.7.7, )"
@@ -6223,14 +6203,6 @@
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[5.0.0.2578, )"
-          },
-          "Xamarin.Forms": {
-            "target": "Package",
-            "version": "[5.0.0.2578, )"
-          },
-          "Xamarin.Plugin.Calendar": {
-            "target": "Package",
-            "version": "[2.0.9699, )"
           },
           "Xamarin.Plugin.Calendar": {
             "target": "Package",
