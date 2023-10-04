@@ -14,7 +14,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 
-
 namespace App_dailybetes3.Paginas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
