@@ -27,3 +27,35 @@ D:\Projetos C#\App_dailybetes3\App_dailybetes3\App_dailybetes3\obj\Release\netst
 D:\Projetos C#\App_dailybetes3\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\App_dailybetes3.dll
 D:\Projetos C#\App_dailybetes3\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\refint\App_dailybetes3.dll
 D:\Projetos C#\App_dailybetes3\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\App_dailybetes3.pdb
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\bin\Release\netstandard2.0\App_dailybetes3.deps.json
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\bin\Release\netstandard2.0\App_dailybetes3.dll
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\bin\Release\netstandard2.0\ref\App_dailybetes3.dll
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\bin\Release\netstandard2.0\App_dailybetes3.pdb
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\App_dailybetes3.csproj.AssemblyReference.cache
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\App_dailybetes3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\App.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Agenda.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\AjudaEFeedback.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Cadastro.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Configuracoes.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Conteudo.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Conteudo_Glicemia.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Conteudo_Insulina.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Conteudo_Tratamentos.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Glicemia.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Insulina.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Login.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Notas.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Refeicoes.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Relatorio_glicemia.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Relatorio_insulina.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Relatorio_refeicoes.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\Uploads.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\Paginas\VisaoGeral.xaml.g.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\App_dailybetes3.AssemblyInfoInputs.cache
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\App_dailybetes3.AssemblyInfo.cs
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\App_dailybetes3.csproj.CoreCompileInputs.cache
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\XamlC.stamp
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\App_dailybetes3.dll
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\refint\App_dailybetes3.dll
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Release\netstandard2.0\App_dailybetes3.pdb

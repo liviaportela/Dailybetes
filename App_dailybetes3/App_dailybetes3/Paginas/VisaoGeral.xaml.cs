@@ -263,10 +263,11 @@ namespace App_dailybetes3.Paginas
                 grafico2.IsVisible = false;
                 grafico3.IsVisible = false;
                 label_gr1.Text = "8h";
-                label_gr2.Text = "11h";
-                label_gr3.Text = "12h";
-                label_gr4.Text = "16h";
-                label_gr5.Text = "20h";
+                label_gr2.Text = "10h";
+                label_gr3.Text = "11h";
+                label_gr4.Text = "12h";
+                label_gr5.Text = "18h";
+                label_gr6.Text = "20h";
 
             }
             if (num_grafico == 1)
@@ -281,6 +282,7 @@ namespace App_dailybetes3.Paginas
                 label_gr3.Text = "QUA";
                 label_gr4.Text = "";
                 label_gr5.Text = "SEX";
+                label_gr6.Text = "";
             }
             if (num_grafico == 2)
             {
@@ -294,6 +296,7 @@ namespace App_dailybetes3.Paginas
                 label_gr3.Text = "21d";
                 label_gr4.Text = "28d";
                 label_gr5.Text = "35d";
+                label_gr6.Text = "";
             }
         }
 

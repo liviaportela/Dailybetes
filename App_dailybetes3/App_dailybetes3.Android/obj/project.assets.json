@@ -6146,11 +6146,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\livia\\source\\repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3.Android\\App_dailybetes3.Android.csproj",
+      "projectUniqueName": "C:\\Users\\livia\\Source\\Repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3.Android\\App_dailybetes3.Android.csproj",
       "projectName": "App_dailybetes3.Android",
-      "projectPath": "C:\\Users\\livia\\source\\repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3.Android\\App_dailybetes3.Android.csproj",
+      "projectPath": "C:\\Users\\livia\\Source\\Repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3.Android\\App_dailybetes3.Android.csproj",
       "packagesPath": "C:\\Users\\livia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\livia\\source\\repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3.Android\\obj\\",
+      "outputPath": "C:\\Users\\livia\\Source\\Repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -6170,8 +6170,8 @@
       "frameworks": {
         "monoandroid13.0": {
           "projectReferences": {
-            "C:\\Users\\livia\\source\\repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3.csproj": {
-              "projectPath": "C:\\Users\\livia\\source\\repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3.csproj"
+            "C:\\Users\\livia\\Source\\Repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3.csproj": {
+              "projectPath": "C:\\Users\\livia\\Source\\Repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3.csproj"
             }
           }
         }

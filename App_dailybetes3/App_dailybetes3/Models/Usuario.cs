@@ -48,7 +48,6 @@ namespace ProjetoBase.Models
         public List<string> vl_insulina = new List<string>();
         public List<string> vl_data_insulina = new List<string>();
 
-
         public static string Email { get; set; }
         public string Senha { get; set; }
         public static string Id_usuario { get; set; }
@@ -250,7 +249,10 @@ namespace ProjetoBase.Models
             {
                 return Ret;
             }
-            StrQuery = "SELECT * FROM tb_tarefas WHERE data = curdate() and id_usuario = '" + Id_usuario + "';";
+            var date_now_ = DateTime.Now;
+            string data_atual = date_now_.Year + "-" + date_now_.Month + "-" + date_now_.Day;
+
+            StrQuery = "SELECT * FROM tb_tarefas WHERE data = '" + data_atual + "' and id_usuario = '" + Id_usuario + "';";
             using (MySqlCommand cmd = new MySqlCommand(StrQuery, Conn))
             {
                 Dr = cmd.ExecuteReader();
@@ -396,7 +398,9 @@ namespace ProjetoBase.Models
             {
                 return Ret;
             }
-            StrQuery = "SELECT nivel_glicemia FROM tb_glicemia WHERE data = curdate()  and id_usuario = '" + Id_usuario + "'";
+            var date_now_ = DateTime.Now;
+            string data_atual = date_now_.Year + "-" + date_now_.Month + "-" + date_now_.Day;
+            StrQuery = "SELECT nivel_glicemia FROM tb_glicemia WHERE data = '" + data_atual + "'  and id_usuario = '" + Id_usuario + "'";
             MySqlCommand cmd = new MySqlCommand(StrQuery, Conn);
             Dr = cmd.ExecuteReader();
             while (Dr.Read())//vai para o próximo registro de dados
@@ -722,7 +726,9 @@ namespace ProjetoBase.Models
             {
                 return Ret;
             }
-            StrQuery = "SELECT titulo_nota , conteudo, date_format(data, '%d/%m/%Y') AS data FROM notas WHERE data = curdate() and id_usuario = '" + Id_usuario + "';";
+            var date_now_ = DateTime.Now;
+            string data_atual = date_now_.Year + "-" + date_now_.Month + "-" + date_now_.Day;
+            StrQuery = "SELECT titulo_nota , conteudo, date_format(data, '%d/%m/%Y') AS data FROM notas WHERE data = '" + data_atual + "' and id_usuario = '" + Id_usuario + "';";
             using (MySqlCommand cmd = new MySqlCommand(StrQuery, Conn))
             {
                 Dr = cmd.ExecuteReader();
@@ -791,7 +797,9 @@ namespace ProjetoBase.Models
             {
                 return Ret;
             }
-            StrQuery = "SELECT caminho_arquivo, date_format(data, '%m/%d/%Y') AS data, hora, titulo_arquivo FROM uploads_arquivos WHERE data = curdate() and id_usuario = '" + Id_usuario + "' order by data;";
+            var date_now_ = DateTime.Now;
+            string data_atual = date_now_.Year + "-" + date_now_.Month + "-" + date_now_.Day;
+            StrQuery = "SELECT caminho_arquivo, date_format(data, '%m/%d/%Y') AS data, hora, titulo_arquivo FROM uploads_arquivos WHERE data = '" + data_atual + "' and id_usuario = '" + Id_usuario + "' order by data;";
             using (MySqlCommand cmd = new MySqlCommand(StrQuery, Conn))
             {
                 Dr = cmd.ExecuteReader();
@@ -861,7 +869,9 @@ namespace ProjetoBase.Models
             {
                 return Ret;
             }
-            StrQuery = "SELECT nivel_insulina, date_format(data, '%m/%d/%Y %H:%i') AS data FROM insulina WHERE data = curdate() and id_usuario = '" + Id_usuario + "' order by data;";
+            var date_now_ = DateTime.Now;
+            string data_atual = date_now_.Year + "-" + date_now_.Month + "-" + date_now_.Day;
+            StrQuery = "SELECT nivel_insulina, date_format(data, '%m/%d/%Y') AS data FROM insulina WHERE data = '" + data_atual + "' and id_usuario = '" + Id_usuario + "' order by data;";
             using (MySqlCommand cmd = new MySqlCommand(StrQuery, Conn))
             {
                 Dr = cmd.ExecuteReader();
@@ -888,7 +898,7 @@ namespace ProjetoBase.Models
             {
                 return Ret;
             }
-            StrQuery = "SELECT nivel_insulina, date_format(data, '%m/%d/%Y %H:%i') AS data FROM insulina WHERE id_usuario = '" + Id_usuario + "' order by data;";
+            StrQuery = "SELECT nivel_insulina, date_format(data, '%m/%d/%Y') AS data FROM insulina WHERE id_usuario = '" + Id_usuario + "' order by data;";
             using (MySqlCommand cmd = new MySqlCommand(StrQuery, Conn))
             {
                 Dr = cmd.ExecuteReader();

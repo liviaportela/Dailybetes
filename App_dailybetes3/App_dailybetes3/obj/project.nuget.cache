@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "E9jpP8mhZBU5SRNi3IPtRMoFw/UFFAzDrad3Re+8WqcePn89UALHsO4jCtwJ3if8N6/gNIWHqQiRFsLNYySUwQ==",
+  "dgSpecHash": "p6+EQ7XKVs/hkwFCazs+N2ZvHMkhKvCH4lY25EcEU95lcnCL+yk2ut+M/dvpZoBp2XMXkrRQSlh3Ig1myQ2zrA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\livia\\source\\repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3.csproj",
+  "projectFilePath": "C:\\Users\\livia\\Source\\Repos\\App_dailybetes_certo\\App_dailybetes3\\App_dailybetes3\\App_dailybetes3.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\livia\\.nuget\\packages\\itext\\8.0.1\\itext.8.0.1.nupkg.sha512",
     "C:\\Users\\livia\\.nuget\\packages\\itext.bouncy-castle-adapter\\8.0.1\\itext.bouncy-castle-adapter.8.0.1.nupkg.sha512",

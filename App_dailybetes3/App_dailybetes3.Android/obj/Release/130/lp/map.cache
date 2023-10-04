@@ -1,4 +1,5 @@
 FormsViewGroup.dll
+iTextSharpLGPL-MonoForAndroid.dll
 Microcharts.Droid.dll
 SkiaSharp.dll
 SkiaSharp.Views.Android.dll
@@ -62,6 +63,7 @@ Xamarin.Forms.Platform.dll
 Xamarin.Google.Android.Material.dll
 Xamarin.Google.Guava.ListenableFuture.dll
 Xamarin.Plugin.Calendar.dll
+XamiTextSharpLGPL.Droid.dll
 androidx.versionedparcelable.versionedparcelable.aar
 androidx.arch.core.core-runtime.aar
 androidx.lifecycle.lifecycle-runtime.aar

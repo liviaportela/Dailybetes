@@ -34,48 +34,42 @@ namespace App_dailybetes3.Paginas
 
         private async void GeneratePDFButton_Clicked(object sender, EventArgs e)
         {
-            // Solicite permissão de armazenamento
-            PermissionService permissionService = new PermissionService();
-            await permissionService.CheckAndRequestStoragePermissionAsync();
-
-            // Obtenha o serviço de arquivo para obter o caminho da pasta de downloads
-            IFileService fileService = DependencyService.Get<IFileService>();
-            string downloadsPath = await fileService.GetDownloadsPathAsync();
-
-            // Crie o caminho completo para o arquivo PDF
-            string pdfFileName = "Relatório_insulina.pdf";
-            string pdfPath = Path.Combine(downloadsPath, pdfFileName);
-
-            // Gere o PDF usando o caminho correto
-            using (var fs = new FileStream(pdfPath, FileMode.Create))
+            // Gere o PDF em memória
+            using (var ms = new MemoryStream())
             {
-                var writer = new PdfWriter(fs);
+                var writer = new PdfWriter(ms);
                 var pdf = new PdfDocument(writer);
                 var document = new Document(pdf);
                 document.Add(new Paragraph("   Resultado              Data                  "));
                 // Adicione conteúdo ao PDF (dados fictícios)
                 for (int i = 0; i < User.vl_insulina.Count; i++)
                 {
-
                     document.Add(new Paragraph("         " + User.vl_insulina[i] + "                      " + User.vl_data_insulina[i] + "           "));
                 }
 
                 document.Close();
-            }
 
-            try
-            {
-                // Mova o arquivo para a pasta de downloads
-                await Share.RequestAsync(new ShareFileRequest
+                // Salve o PDF em um local temporário
+                string tempFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Relatório_insulina.pdf");
+                File.WriteAllBytes(tempFilePath, ms.ToArray());
+
+                try
                 {
-                    File = new ShareFile(pdfPath),
-                    Title = "Compartilhar PDF"
-                });
-            }
-            catch (Exception ex)
-            {
-                // Lidar com erros de cópia, como falta de permissões, etc.
-                await DisplayAlert("Erro", "Ocorreu um erro ao copiar o arquivo para a pasta de downloads: " + ex.Message, "OK");
+                    // Compartilhe o PDF e depois exclua o arquivo temporário
+                    await Share.RequestAsync(new ShareFileRequest
+                    {
+                        File = new ShareFile(tempFilePath),
+                        Title = "Compartilhar PDF"
+                    });
+
+                    // Exclua o arquivo temporário
+                    File.Delete(tempFilePath);
+                }
+                catch (Exception ex)
+                {
+                    // Lidar com erros de compartilhamento
+                    await DisplayAlert("Erro", "Ocorreu um erro ao compartilhar o PDF: " + ex.Message, "OK");
+                }
             }
         }
     }
