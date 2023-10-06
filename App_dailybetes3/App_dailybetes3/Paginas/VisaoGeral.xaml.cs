@@ -61,24 +61,36 @@ namespace App_dailybetes3.Paginas
                 new Entry(Int32.Parse(User.valores_glicemia_diariamente[0]))
                 {
                     Color = SKColor.Parse("#DC143C"),
+                    Label ="8h",
+                    ValueLabel = User.valores_glicemia_diariamente[0].ToString()
                 },
                 new Entry(Int32.Parse(User.valores_glicemia_diariamente[1]))
                 {
-                    Color = SKColor.Parse("#DC143C")
+                    Color = SKColor.Parse("#DC143C"),
+                    Label ="10h",
+                    ValueLabel = User.valores_glicemia_diariamente[1].ToString()
                 },
                 new Entry(Int32.Parse(User.valores_glicemia_diariamente[2]))
                 {
-                    Color = SKColor.Parse("#DC143C")
+                    Color = SKColor.Parse("#DC143C"),
+                    Label ="11h",
+                    ValueLabel = User.valores_glicemia_diariamente[2].ToString()
                 },
                 new Entry(Int32.Parse(User.valores_glicemia_diariamente[3]))
                 {
-                    Color = SKColor.Parse("#DC143C")
+                    Color = SKColor.Parse("#DC143C"),
+                    Label ="12h",
+                    ValueLabel = User.valores_glicemia_diariamente[3].ToString()
                 },new Entry(Int32.Parse(User.valores_glicemia_diariamente[4]))
                 {
-                    Color = SKColor.Parse("#DC143C")
+                    Color = SKColor.Parse("#DC143C"),
+                    Label ="18h",
+                    ValueLabel = User.valores_glicemia_diariamente[4].ToString()
                 },new Entry(Int32.Parse(User.valores_glicemia_diariamente[5]))
                 {
-                    Color = SKColor.Parse("#DC143C")
+                    Color = SKColor.Parse("#DC143C"),
+                    Label ="20h",
+                    ValueLabel = User.valores_glicemia_diariamente[5].ToString()
                 },
             };
 
@@ -88,24 +100,37 @@ namespace App_dailybetes3.Paginas
                 new Entry(Int32.Parse(User.valores_glicemia_semanalmente[0]))
                 {
                     Color = SKColor.Parse("#DC143C"),
+                    Label ="SEG",
+                    ValueLabel = User.valores_glicemia_diariamente[0].ToString()
                 },
                 new Entry(Int32.Parse(User.valores_glicemia_semanalmente[1]))
                 {
-                    Color = SKColor.Parse("#DC143C")
+                    Color = SKColor.Parse("#DC143C"),
+                    Label ="TER",
+                    ValueLabel = User.valores_glicemia_semanalmente[1].ToString()
                 },
                 new Entry(Int32.Parse(User.valores_glicemia_semanalmente[2]))
                 {
-                    Color = SKColor.Parse("#DC143C")
+                    Color = SKColor.Parse("#DC143C"),
+                    Label ="QUA",
+                    ValueLabel = User.valores_glicemia_semanalmente[2].ToString()
                 },
                 new Entry(Int32.Parse(User.valores_glicemia_semanalmente[3]))
                 {
-                    Color = SKColor.Parse("#DC143C")
+                    Color = SKColor.Parse("#DC143C"),
+                    Label ="QUI",
+                    ValueLabel = User.valores_glicemia_semanalmente[3].ToString()
                 },new Entry(Int32.Parse(User.valores_glicemia_semanalmente[4]))
                 {
-                    Color = SKColor.Parse("#DC143C")
+                    Color = SKColor.Parse("#DC143C"),
+                    Label ="SEX",
+                    ValueLabel = User.valores_glicemia_semanalmente[4].ToString()
+
                 },new Entry(Int32.Parse(User.valores_glicemia_semanalmente[5]))
                 {
-                    Color = SKColor.Parse("#DC143C")
+                    Color = SKColor.Parse("#DC143C"),
+                    Label ="SAB",
+                    ValueLabel = User.valores_glicemia_semanalmente[5].ToString()
                 },
             };
 
@@ -150,7 +175,7 @@ namespace App_dailybetes3.Paginas
             label_gr3.Text = "11h";
             label_gr4.Text = "12h";
             label_gr5.Text = "18h";
-            label_gr5.Text = "20h";
+            label_gr6.Text = "20h";
 
             grafico1.Chart = new Microcharts.LineChart() { Entries = entries1, BackgroundColor = SKColors.Transparent, PointSize = 20, Margin = 3, LineMode = Microcharts.LineMode.Straight, MinValue = 0, MaxValue = 300 };
             grafico2.Chart = new Microcharts.LineChart() { Entries = entries2, BackgroundColor = SKColors.Transparent, PointSize = 20, Margin = 3, LineMode = Microcharts.LineMode.Straight, MinValue = 0, MaxValue = 300 };
@@ -316,10 +341,11 @@ namespace App_dailybetes3.Paginas
                 grafico2.IsVisible = false;
                 grafico3.IsVisible = false;
                 label_gr1.Text = "8h";
-                label_gr2.Text = "11h";
-                label_gr3.Text = "12h";
-                label_gr4.Text = "16h";
-                label_gr5.Text = "20h";
+                label_gr2.Text = "10h";
+                label_gr3.Text = "11h";
+                label_gr4.Text = "12h";
+                label_gr5.Text = "18h";
+                label_gr6.Text = "20h";
             }
             if (num_grafico == 1)
             {
@@ -333,6 +359,7 @@ namespace App_dailybetes3.Paginas
                 label_gr3.Text = "QUA";
                 label_gr4.Text = "";
                 label_gr5.Text = "SEX";
+                label_gr6.Text = "";
             }
             if (num_grafico == 2)
             {
@@ -346,6 +373,7 @@ namespace App_dailybetes3.Paginas
                 label_gr3.Text = "21d";
                 label_gr4.Text = "28d";
                 label_gr5.Text = "35d";
+                label_gr6.Text = "";
             }
         }
         public async void Animation()
