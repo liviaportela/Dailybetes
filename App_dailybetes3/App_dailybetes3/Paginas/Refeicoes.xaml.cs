@@ -190,13 +190,18 @@ namespace App_dailybetes3.Paginas
 
         private void Salvar_refeicao(object sender, EventArgs e)
         {
-            if (entry_refeicao.Text != "" || entry_refeicao != null)
+            if (entry_refeicao.Text == null)
+            {
+                DisplayAlert("Aviso", "Inserir os dados corretamente", "OK");
+            }
+            else
             {
                 User.Cadastrar_refeicoes(hora_refeicao, entry_refeicao.Text.ToString());
                 User.Consulta_refeicoes();
                 Selecionar_refeicoes_salvas();
                 frame_refeicao.IsVisible = false;
                 coverLayout2.IsVisible = false;
+                entry_refeicao.Text = null;
             }
         }
     }

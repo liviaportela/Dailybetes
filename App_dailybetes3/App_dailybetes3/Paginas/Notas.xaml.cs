@@ -144,15 +144,22 @@ namespace App_dailybetes3.Paginas
         }
         private void Salvar_nota(object sender, EventArgs e)
         {
-            if (titulo_nota.Text != null || titulo_nota.Text != "" || titulo_nota != null || texto_nota.Text != "")
+
+            if (titulo_nota.Text == null || texto_nota.Text == null)
+            {
+                DisplayAlert("Aviso", "Inserir os dados corretamente", "OK");
+            }
+            else
             {
                 string titulo = titulo_nota.Text.ToString();
                 string texNota = texto_nota.Text.ToString();
                 User.Cadastrar_notas(titulo, texNota);
                 titulo_nota.Text = "";
                 texto_nota.Text = "";
+                Navigation.PushAsync(new Notas());
             }
         }
+
 
 
         private void Abrir_menu_nota1(object sender, EventArgs e)

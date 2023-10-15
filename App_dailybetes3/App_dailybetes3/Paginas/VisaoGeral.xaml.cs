@@ -34,7 +34,7 @@ namespace App_dailybetes3.Paginas
             {
                 for (int i = 0; i < User.tarefas.Count; i++)
                 {
-                    compromissos_obj2.Add(new Compromissos_objects2 { Tarefa2 = User.tarefas[i].ToString(), Hora2 = User.tarefas_hora[i].ToString() });
+                    compromissos_obj2.Add(new Compromissos_objects2 { Tarefa2 = ((User.tarefas[i].ToString())), Hora2 = User.tarefas_hora[i].ToString().Substring(0, 5) });
                 }
             }
 
@@ -50,7 +50,7 @@ namespace App_dailybetes3.Paginas
             {
                 for (int i = 0; i < User.refeicoes_descricao.Count; i++)
                 {
-                    refeicoes_obj.Add(new Refeicoes_obj { hora_ref = User.refeicoes_hora[i].ToString(), descricao = User.refeicoes_descricao[i].ToString() });
+                    refeicoes_obj.Add(new Refeicoes_obj { hora_ref = ((User.refeicoes_hora[i].ToString().Substring(0, 5))), descricao = User.refeicoes_descricao[i].ToString() });
                 }
             }
 
@@ -140,25 +140,32 @@ namespace App_dailybetes3.Paginas
                 new Entry(Int32.Parse(User.valores_glicemia_mensalmente[0]))
                 {
                     Color = SKColor.Parse("#DC143C"),
+                    Label = "7d",
+                    ValueLabel = User.valores_glicemia_mensalmente[0].ToString()
                 },
                 new Entry(Int32.Parse(User.valores_glicemia_mensalmente[1]))
                 {
-                    Color = SKColor.Parse("#DC143C")
+                    Color = SKColor.Parse("#DC143C"),
+                    Label = "14d",
+                    ValueLabel = User.valores_glicemia_mensalmente[1].ToString()
                 },
                 new Entry(Int32.Parse(User.valores_glicemia_mensalmente[2]))
                 {
-                    Color = SKColor.Parse("#DC143C")
+                    Color = SKColor.Parse("#DC143C"),
+                    Label = "21d",
+                    ValueLabel = User.valores_glicemia_mensalmente[2].ToString()
                 },
                 new Entry(Int32.Parse(User.valores_glicemia_mensalmente[3]))
                 {
-                    Color = SKColor.Parse("#DC143C")
+                    Color = SKColor.Parse("#DC143C"),
+                    Label = "28d",
+                    ValueLabel = User.valores_glicemia_mensalmente[3].ToString()
                 },new Entry(Int32.Parse(User.valores_glicemia_mensalmente[4]))
                 {
-                    Color = SKColor.Parse("#DC143C")
-                },new Entry(Int32.Parse(User.valores_glicemia_mensalmente[5]))
-                {
-                    Color = SKColor.Parse("#DC143C")
-                },
+                    Color = SKColor.Parse("#DC143C"),
+                    Label = "35d",
+                    ValueLabel = User.valores_glicemia_mensalmente[4].ToString() 
+                }
             };
 
             //         graficos_por_periodo = new ObservableCollection<Graficos_por_periodo>
@@ -170,25 +177,22 @@ namespace App_dailybetes3.Paginas
             //
             //         Carrousel.ItemsSource = graficos_por_periodo;
 
-            label_gr1.Text = "8h";
-            label_gr2.Text = "10h";
-            label_gr3.Text = "11h";
-            label_gr4.Text = "12h";
-            label_gr5.Text = "18h";
-            label_gr6.Text = "20h";
+            //label_gr1.Text = "8h";
+            //label_gr2.Text = "10h";
+            //label_gr3.Text = "11h";
+            //label_gr4.Text = "12h";
+            //label_gr5.Text = "18h";
+            //label_gr6.Text = "20h";
 
-            grafico1.Chart = new Microcharts.LineChart() { Entries = entries1, BackgroundColor = SKColors.Transparent, PointSize = 20, Margin = 3, LineMode = Microcharts.LineMode.Straight, MinValue = 0, MaxValue = 300 };
-            grafico2.Chart = new Microcharts.LineChart() { Entries = entries2, BackgroundColor = SKColors.Transparent, PointSize = 20, Margin = 3, LineMode = Microcharts.LineMode.Straight, MinValue = 0, MaxValue = 300 };
-            grafico3.Chart = new Microcharts.LineChart() { Entries = entries3, BackgroundColor = SKColors.Transparent, PointSize = 20, Margin = 3, LineMode = Microcharts.LineMode.Straight, MinValue = 0, MaxValue = 300 };
-
+            grafico1.Chart = new Microcharts.LineChart() { Entries = entries1, BackgroundColor = SKColors.Transparent, PointSize = 20, LabelOrientation = Microcharts.Orientation.Horizontal, ValueLabelOrientation = Microcharts.Orientation.Horizontal, LabelTextSize = 22, Margin = 30, LineMode = Microcharts.LineMode.Straight, MinValue = 0, MaxValue = 300 };
+            grafico2.Chart = new Microcharts.LineChart() { Entries = entries2, BackgroundColor = SKColors.Transparent, PointSize = 20, LabelOrientation = Microcharts.Orientation.Horizontal, ValueLabelOrientation = Microcharts.Orientation.Horizontal, LabelTextSize = 22, Margin = 30, LineMode = Microcharts.LineMode.Straight, MinValue = 0, MaxValue = 300 };
+            grafico3.Chart = new Microcharts.LineChart() { Entries = entries3, BackgroundColor = SKColors.Transparent, PointSize = 20, LabelOrientation = Microcharts.Orientation.Horizontal, ValueLabelOrientation = Microcharts.Orientation.Horizontal, LabelTextSize = 22, Margin = 30, LineMode = Microcharts.LineMode.Straight, MinValue = 0, MaxValue = 300 };
 
             //Grafico.Chart = new Microcharts.LineChart() { Entries = entries1, BackgroundColor = SKColors.Transparent, PointSize = 20, Margin = 3, LineMode = Microcharts.LineMode.Straight, MinValue = 0, MaxValue = 300 };
             var date_now = DateTime.Now;
             lb_data.Text = "Hoje " + date_now.Day + "/" + date_now.Month;
             lb_hora.Text = String.Format("Hoje {0:t}", date_now);
         }
-
-
 
         private void Tb_visaogeral(object sender, EventArgs e)
         {
@@ -287,12 +291,12 @@ namespace App_dailybetes3.Paginas
                 grafico1.IsVisible = true;
                 grafico2.IsVisible = false;
                 grafico3.IsVisible = false;
-                label_gr1.Text = "8h";
-                label_gr2.Text = "10h";
-                label_gr3.Text = "11h";
-                label_gr4.Text = "12h";
-                label_gr5.Text = "18h";
-                label_gr6.Text = "20h";
+                //label_gr1.Text = "8h";
+                //label_gr2.Text = "10h";
+                //label_gr3.Text = "11h";
+                //label_gr4.Text = "12h";
+                //label_gr5.Text = "18h";
+                //label_gr6.Text = "20h";
 
             }
             if (num_grafico == 1)
@@ -302,12 +306,12 @@ namespace App_dailybetes3.Paginas
                 grafico1.IsVisible = false;
                 grafico2.IsVisible = true;
                 grafico3.IsVisible = false;
-                label_gr1.Text = "SEG";
-                label_gr2.Text = "";
-                label_gr3.Text = "QUA";
-                label_gr4.Text = "";
-                label_gr5.Text = "SEX";
-                label_gr6.Text = "";
+                //label_gr1.Text = "SEG";
+                //label_gr2.Text = "";
+                //label_gr3.Text = "QUA";
+                //label_gr4.Text = "";
+                //label_gr5.Text = "SEX";
+                //label_gr6.Text = "";
             }
             if (num_grafico == 2)
             {
@@ -316,12 +320,12 @@ namespace App_dailybetes3.Paginas
                 grafico1.IsVisible = false;
                 grafico2.IsVisible = false;
                 grafico3.IsVisible = true;
-                label_gr1.Text = "7d";
-                label_gr2.Text = "14d";
-                label_gr3.Text = "21d";
-                label_gr4.Text = "28d";
-                label_gr5.Text = "35d";
-                label_gr6.Text = "";
+                //label_gr1.Text = "7d";
+                //label_gr2.Text = "14d";
+                //label_gr3.Text = "21d";
+                //label_gr4.Text = "28d";
+                //label_gr5.Text = "35d";
+                //label_gr6.Text = "";
             }
         }
 
@@ -340,12 +344,12 @@ namespace App_dailybetes3.Paginas
                 grafico1.IsVisible = true;
                 grafico2.IsVisible = false;
                 grafico3.IsVisible = false;
-                label_gr1.Text = "8h";
-                label_gr2.Text = "10h";
-                label_gr3.Text = "11h";
-                label_gr4.Text = "12h";
-                label_gr5.Text = "18h";
-                label_gr6.Text = "20h";
+                //label_gr1.Text = "8h";
+                //label_gr2.Text = "10h";
+                //label_gr3.Text = "11h";
+                //label_gr4.Text = "12h";
+                //label_gr5.Text = "18h";
+                //label_gr6.Text = "20h";
             }
             if (num_grafico == 1)
             {
@@ -354,12 +358,12 @@ namespace App_dailybetes3.Paginas
                 grafico1.IsVisible = false;
                 grafico2.IsVisible = true;
                 grafico3.IsVisible = false;
-                label_gr1.Text = "SEG";
-                label_gr2.Text = "";
-                label_gr3.Text = "QUA";
-                label_gr4.Text = "";
-                label_gr5.Text = "SEX";
-                label_gr6.Text = "";
+                //label_gr1.Text = "SEG";
+                //label_gr2.Text = "";
+                //label_gr3.Text = "QUA";
+                //label_gr4.Text = "";
+                //label_gr5.Text = "SEX";
+                //label_gr6.Text = "";
             }
             if (num_grafico == 2)
             {
@@ -368,12 +372,12 @@ namespace App_dailybetes3.Paginas
                 grafico1.IsVisible = false;
                 grafico2.IsVisible = false;
                 grafico3.IsVisible = true;
-                label_gr1.Text = "7d";
-                label_gr2.Text = "14d";
-                label_gr3.Text = "21d";
-                label_gr4.Text = "28d";
-                label_gr5.Text = "35d";
-                label_gr6.Text = "";
+                //label_gr1.Text = "7d";
+                //label_gr2.Text = "14d";
+                //label_gr3.Text = "21d";
+                //label_gr4.Text = "28d";
+                //label_gr5.Text = "35d";
+                //label_gr6.Text = "";
             }
         }
         public async void Animation()

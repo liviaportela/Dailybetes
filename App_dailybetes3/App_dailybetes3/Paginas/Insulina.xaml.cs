@@ -132,7 +132,16 @@ namespace App_dailybetes3.Paginas
 
         private void Sv_insulina(object sender, EventArgs e)
         {
-            User.Cadastrar_insulina(entry_insulina_manha.Text.ToString());
+            if (entry_insulina_manha.Text == null)
+            {
+                DisplayAlert("Aviso", "Inserir os dados corretamente", "OK");
+            }
+            else
+            {
+                User.Cadastrar_insulina(entry_insulina_manha.Text.ToString());
+                entry_insulina_manha.Text = null;
+                Navigation.PushAsync(new Insulina());
+            }
         }
     }
 }

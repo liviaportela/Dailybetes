@@ -176,12 +176,13 @@ namespace ProjetoBase.Models
             {
                 return Ret;
             }
-            StrQuery = "INSERT INTO tb_refeicoes (id_usuario, hora, data, descricao) VALUES ('" + Id_usuario + "', '" + p_hora + "' , curdate()  ,'" + p_descricao + "')";
+            var date_now_ = DateTime.Now;
+            string data_atual = date_now_.Year + "-" + date_now_.Month + "-" + date_now_.Day;
+            StrQuery = "INSERT INTO tb_refeicoes (id_usuario, hora, data, descricao) VALUES ('" + Id_usuario + "', '" + p_hora + "' , '" + data_atual + "'  ,'" + p_descricao + "')";
             MySqlCommand cmd = new MySqlCommand(StrQuery, Conn);
             cmd.ExecuteReader();
             Conn.Close();
-            return Ret;
-        }
+          }
         public bool Consulta_refeicoes()
         {
             dic_data_refeicao.Clear();
@@ -283,7 +284,7 @@ namespace ProjetoBase.Models
             {
                 return Ret;
             }
-            StrQuery = "SELECT hora,date_format(data, '%m/%d/%Y') AS data,conteudo FROM tb_tarefas WHERE id_usuario = '" + Id_usuario + "' order by hora";
+            StrQuery = "SELECT hora,date_format(data, '%d/%m/%Y') AS data,conteudo FROM tb_tarefas WHERE id_usuario = '" + Id_usuario + "' order by hora";
             MySqlCommand cmd = new MySqlCommand(StrQuery, Conn);
             Dr = cmd.ExecuteReader();
             while (Dr.Read())//vai para o próximo registro de dados
@@ -292,11 +293,13 @@ namespace ProjetoBase.Models
                 tarefas_hora.Add(Dr["hora"].ToString());
                 tarefas_data.Add(Dr["data"].ToString());
             }
+
             Ret = true;
             Conn.Close();
             Dr.Close();
             return Ret;
         }
+
         public bool Consulta_compromissos_hoje()
         {
             tarefas.Clear();
@@ -307,7 +310,9 @@ namespace ProjetoBase.Models
             {
                 return Ret;
             }
-            StrQuery = "SELECT hora,date_format(data, '%d/%m/%Y') AS data,conteudo FROM tb_tarefas WHERE data = curdate() and id_usuario = '" + Id_usuario + "' order by hora";
+            var date_now_ = DateTime.Now;
+            string data_atual = date_now_.Year + "-" + date_now_.Month + "-" + date_now_.Day;
+            StrQuery = "SELECT hora,date_format(data, '%d/%m/%Y') AS data,conteudo FROM tb_tarefas WHERE data = '" + data_atual + "' and id_usuario = '" + Id_usuario + "' order by hora";
             MySqlCommand cmd = new MySqlCommand(StrQuery, Conn);
             Dr = cmd.ExecuteReader();
             while (Dr.Read())//vai para o próximo registro de dados
@@ -316,11 +321,13 @@ namespace ProjetoBase.Models
                 tarefas_hora.Add(Dr["hora"].ToString());
                 tarefas_data.Add(Dr["data"].ToString());
             }
+
             Ret = true;
             Conn.Close();
             Dr.Close();
             return Ret;
         }
+
 
         //Relatórios
         public bool Consulta_tabela_glicemia()
@@ -421,6 +428,7 @@ namespace ProjetoBase.Models
             Dr.Close();
             return Ret;
         }
+
         public bool Consulta_tabela_glicemia_semanalmente()
         {
             Ret = false;
@@ -712,12 +720,15 @@ namespace ProjetoBase.Models
             {
                 return Ret;
             }
-            StrQuery = "INSERT INTO notas (id_usuario, data, titulo_nota, conteudo) VALUES ('" + Id_usuario + "', curdate() ,'" + titulo + "' ,'" + texto_nota + "')";
+            var date_now_ = DateTime.Now;
+            string data_atual = date_now_.Year + "-" + date_now_.Month + "-" + date_now_.Day;
+            StrQuery = "INSERT INTO notas (id_usuario, data, titulo_nota, conteudo) VALUES ('" + Id_usuario + "', '" + data_atual + "' ,'" + titulo + "' ,'" + texto_nota + "')";
             MySqlCommand cmd = new MySqlCommand(StrQuery, Conn);
             cmd.ExecuteReader();
             Conn.Close();
             return Ret;
         }
+
         public bool Consulta_notas()
         {
             titulo_nota.Clear();
@@ -747,6 +758,7 @@ namespace ProjetoBase.Models
             Conn.Close();
             return Ret;
         }
+
         public bool Consulta_todas_notas()
         {
             titulo_nota2.Clear();
@@ -799,7 +811,7 @@ namespace ProjetoBase.Models
             }
             var date_now_ = DateTime.Now;
             string data_atual = date_now_.Year + "-" + date_now_.Month + "-" + date_now_.Day;
-            StrQuery = "SELECT caminho_arquivo, date_format(data, '%m/%d/%Y') AS data, hora, titulo_arquivo FROM uploads_arquivos WHERE data = '" + data_atual + "' and id_usuario = '" + Id_usuario + "' order by data;";
+            StrQuery = "SELECT caminho_arquivo, date_format(data, '%d/%m/%Y') AS data, hora, titulo_arquivo FROM uploads_arquivos WHERE data = '" + data_atual + "' and id_usuario = '" + Id_usuario + "' order by data;";
             using (MySqlCommand cmd = new MySqlCommand(StrQuery, Conn))
             {
                 Dr = cmd.ExecuteReader();
@@ -809,7 +821,7 @@ namespace ProjetoBase.Models
                     while (Dr.Read())//vai para o próximo registro de dados
                     {
                         arquivos_diarios.Add(Dr["titulo_arquivo"].ToString());
-                        arquivos_diarios_data.Add((Dr["data"].ToString()) + " " + Dr["hora"].ToString());
+                        arquivos_diarios_data.Add((Dr["data"].ToString()) + " " + Dr["hora"].ToString().Substring(0, 5));
                         caminho_arquivo1.Add(Dr["caminho_arquivo"].ToString());
                         Ret = true;
                     }
@@ -819,6 +831,7 @@ namespace ProjetoBase.Models
             Conn.Close();
             return Ret;
         }
+
         public bool Consulta_arquivos()
         {
             arquivos.Clear();
@@ -837,7 +850,7 @@ namespace ProjetoBase.Models
                     while (Dr.Read())//vai para o próximo registro de dados
                     {
                         arquivos.Add(Dr["titulo_arquivo"].ToString());
-                        arquivos_data.Add((Dr["data"].ToString()) + " " + Dr["hora"].ToString());
+                        arquivos_data.Add((Dr["data"].ToString()) + " " + Dr["hora"].ToString().Substring(0, 5));
                         caminho_arquivo2.Add(Dr["caminho_arquivo"].ToString());
                         Ret = true;
                     }
@@ -847,6 +860,7 @@ namespace ProjetoBase.Models
             Conn.Close();
             return Ret;
         }
+
         //insulina
         public bool Cadastrar_insulina(string insulina)
         {
@@ -855,12 +869,15 @@ namespace ProjetoBase.Models
             {
                 return Ret;
             }
-            StrQuery = "INSERT INTO insulina (data, nivel_insulina, id_usuario) VALUES ( curdate() ,'" + insulina + "','" + Id_usuario + "')";
+            var date_now_ = DateTime.Now;
+            string data_atual = date_now_.Year + "-" + date_now_.Month + "-" + date_now_.Day;
+            StrQuery = "INSERT INTO insulina (data, nivel_insulina, id_usuario) VALUES ( '" + data_atual + "' ,'" + insulina + "','" + Id_usuario + "')";
             MySqlCommand cmd = new MySqlCommand(StrQuery, Conn);
             cmd.ExecuteReader();
             Conn.Close();
             return Ret;
         }
+
         public bool Consulta_insulina_diaria()
         {
             arquivos_diarios.Clear();
@@ -871,7 +888,7 @@ namespace ProjetoBase.Models
             }
             var date_now_ = DateTime.Now;
             string data_atual = date_now_.Year + "-" + date_now_.Month + "-" + date_now_.Day;
-            StrQuery = "SELECT nivel_insulina, date_format(data, '%m/%d/%Y') AS data FROM insulina WHERE data = '" + data_atual + "' and id_usuario = '" + Id_usuario + "' order by data;";
+            StrQuery = "SELECT nivel_insulina, date_format(data, '%d/%m/%Y') AS data FROM insulina WHERE data = '" + data_atual + "' and id_usuario = '" + Id_usuario + "' order by data;";
             using (MySqlCommand cmd = new MySqlCommand(StrQuery, Conn))
             {
                 Dr = cmd.ExecuteReader();
@@ -889,7 +906,9 @@ namespace ProjetoBase.Models
             Dr.Close();
             Conn.Close();
             return Ret;
+
         }
+
         public bool Consulta_insulina()
         {
             arquivos.Clear();
@@ -898,7 +917,7 @@ namespace ProjetoBase.Models
             {
                 return Ret;
             }
-            StrQuery = "SELECT nivel_insulina, date_format(data, '%m/%d/%Y') AS data FROM insulina WHERE id_usuario = '" + Id_usuario + "' order by data;";
+            StrQuery = "SELECT nivel_insulina, date_format(data, '%d/%m/%Y') AS data FROM insulina WHERE id_usuario = '" + Id_usuario + "' order by data;";
             using (MySqlCommand cmd = new MySqlCommand(StrQuery, Conn))
             {
                 Dr = cmd.ExecuteReader();

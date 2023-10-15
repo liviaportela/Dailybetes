@@ -31,7 +31,7 @@ namespace App_dailybetes3.Paginas
             CVLista.ItemsSource = tarefa;
             for (int i = 0; i < User.tarefas.Count; i++)
             {
-                tarefa.Add(new Compromissos_objects { Tarefa = User.tarefas[i].ToString(), Hora = (User.tarefas_data[i] + " " + User.tarefas_hora[i]).ToString() });
+                tarefa.Add(new Compromissos_objects { Tarefa = User.tarefas[i].ToString(), Hora = (User.tarefas_data[i] + " " + User.tarefas_hora[i]).ToString().Substring(0, 16) });
             }
         }
 
@@ -137,23 +137,31 @@ namespace App_dailybetes3.Paginas
         }
         private void Btm_Salvar_compromisso(object sender, EventArgs e)
         {
-            if (entry_hora.Text != null || entry_hora.Text != "")
+            if (entry_hora.Text == null || entry_compromisso.Text == null)
             {
-                hora = entry_hora.Text.ToString().Substring(0, 2) + ":" + entry_hora.Text.ToString().Substring(2, 2) + ":00";
+                DisplayAlert("Aviso", "Inserir os dados corretamente", "OK");
             }
             else
             {
-                hora = "00:00:00";
-            }
+                if (entry_hora.Text != null)
+                {
+                    hora = entry_hora.Text.ToString().Substring(0, 2) + ":" + entry_hora.Text.ToString().Substring(2, 2) + ":00";
+                }
+                else
+                {
+                    hora = "00:00:00";
+                }
 
-            Console.WriteLine(data_selecionada);
-            Console.WriteLine(hora);
-            string data = data_selecionada;
-            string compromisso = entry_compromisso.Text.ToString();
-            User.Cadastrar_compromisso(hora, data, compromisso);
-            User.Consulta_num_compromissos_hoje();
-            num_compromissos_hoje.Text = Usuario.Num_compromissos + " compromissos";
-            Fechar_frame_compromisso(sender, e);
+                string data = data_selecionada;
+                string compromisso = entry_compromisso.Text.ToString();
+                User.Cadastrar_compromisso(hora, data, compromisso);
+                User.Consulta_num_compromissos_hoje();
+                num_compromissos_hoje.Text = Usuario.Num_compromissos + " compromissos";
+                Fechar_frame_compromisso(sender, e);
+                entry_compromisso.Text = null;
+                entry_hora.Text = null;
+                Navigation.PushAsync(new Agenda());
+            }
         }
     }
 }
