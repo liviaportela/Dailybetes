@@ -182,7 +182,8 @@ namespace ProjetoBase.Models
             MySqlCommand cmd = new MySqlCommand(StrQuery, Conn);
             cmd.ExecuteReader();
             Conn.Close();
-          }
+            return Ret;
+        }
         public bool Consulta_refeicoes()
         {
             dic_data_refeicao.Clear();
