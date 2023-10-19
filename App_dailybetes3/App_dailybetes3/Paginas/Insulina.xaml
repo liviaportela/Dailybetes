@@ -31,7 +31,7 @@
                         <Label Grid.Row="0" Grid.Column="0" Text="HOJE" FontSize="18" TextTransform="Uppercase" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" Margin="60,0,0,0"/>
                         <Entry Grid.Row="0" Grid.Column="1" x:Name="entry_insulina_manha" Placeholder="UI" Keyboard="Numeric" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" TextColor="White"/>
                         <Label Grid.Row="0" Grid.Column="2" Text="UI" FontSize="18" TextTransform="Uppercase" VerticalOptions="Center" FontAttributes="Bold" TextColor="White"/>
-                        <Frame Grid.Row="2" Grid.Column="2" CornerRadius="50" BackgroundColor="#689dd3" HorizontalOptions="End" VerticalOptions="Center" Padding="5" Margin="0,-5,0,0">
+                        <Frame Grid.Row="0" Grid.Column="2" CornerRadius="50" BackgroundColor="#689dd3" HorizontalOptions="End" VerticalOptions="Center" Padding="5">
                             <ImageButton Source="botao_enviar" BackgroundColor="Transparent" Clicked="Sv_insulina"/>
                         </Frame>
                     </Grid>
@@ -91,7 +91,7 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" CornerRadius="28" BackgroundColor="#9ABEE2" Margin="20,20,20,-30" Padding="10">
+                        <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" CornerRadius="28" BackgroundColor="#9ABEE2" Margin="20,20,20,-40" Padding="10">
                             <Label Text="INSULINA" TextColor="#023170" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16"/>
                         </Frame>
                     </Grid>

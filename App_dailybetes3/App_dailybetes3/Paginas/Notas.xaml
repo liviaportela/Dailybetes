@@ -43,8 +43,8 @@
                         </Frame>
                     </Grid>
 
-                    <StackLayout x:Name="stack_adicionadas_hoje" HeightRequest="180">
-                        <CollectionView x:Name="CVLista" Margin="25" HorizontalOptions="CenterAndExpand" ItemsSource="{Binding Lista_notas}">
+                    <StackLayout x:Name="stack_adicionadas_hoje" HeightRequest="220">
+                        <CollectionView Grid.Row="0" x:Name="CVLista" Margin="25" HorizontalOptions="CenterAndExpand" ItemsSource="{Binding Lista_notas}">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout Margin="10">
@@ -67,7 +67,7 @@
                             </CollectionView.ItemTemplate>
                         </CollectionView>
                     </StackLayout>
-                    
+
                     <!--Arquivos-->
                     <Grid>
                         <Grid.RowDefinitions>
@@ -79,12 +79,12 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" CornerRadius="28" BackgroundColor="#9ABEE2" Margin="20,20,20,-30" Padding="10">
+                        <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" CornerRadius="28" BackgroundColor="#9ABEE2" Margin="20,20,20,-40" Padding="10">
                             <Label Text="SINTOMAS" TextColor="#023170" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16"/>
                         </Frame>
-
                     </Grid>
-                    <StackLayout x:Name="stack_notas" HeightRequest="250">
+                    
+                    <StackLayout x:Name="stack_notas" HeightRequest="400">
                         <CollectionView x:Name="CVLista2" Margin="25" HorizontalOptions="CenterAndExpand" ItemsSource="{Binding Lista_notas2}">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
@@ -101,10 +101,8 @@
                                                 </Grid.ColumnDefinitions>
                                                 <Label Grid.Row="0" Grid.Column="0" Text="{Binding todas_notas}" TextColor="White" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
                                                 <Label Grid.Row="0" Grid.Column="1" Text="{Binding data2}" TextColor="white" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
-                                                
                                             </Grid>
                                         </Frame>
-                                        
                                     </StackLayout>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>

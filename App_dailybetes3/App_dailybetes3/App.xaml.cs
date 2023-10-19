@@ -11,7 +11,7 @@ namespace App_dailybetes3
         {
             InitializeComponent();
             
-            MainPage = new AndroidNavigationPage(new Login());
+            MainPage = new AndroidNavigationPage(new SplashPage());
         }
 
         protected override void OnStart()

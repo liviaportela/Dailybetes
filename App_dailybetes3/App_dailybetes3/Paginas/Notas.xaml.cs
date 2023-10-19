@@ -21,8 +21,6 @@ namespace App_dailybetes3.Paginas
             User.Consulta_notas();
             User.Consulta_todas_notas();
             CarregarListaNotas();
-
-
         }
         public void CarregarListaNotas()
         {

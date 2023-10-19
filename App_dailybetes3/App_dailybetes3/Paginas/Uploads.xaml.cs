@@ -207,7 +207,22 @@ namespace App_dailybetes3.Paginas
             coverLayout.IsVisible = false;
         }
 
+        private void AbrirImagemTelaCheia(object sender, EventArgs e)
+        {
+            TelaCheia.IsVisible = true;
+            FrameImagemTelaCheia.IsVisible = true;
+            ImagemTelaCheia.IsVisible = true;
+            var tappedImage = (Image)sender;
+            ImagemTelaCheia.Source = tappedImage.Source;
+            ImagemTelaCheia.IsVisible = true;
+        }
 
+        private void FecharImagemTelaCheia(object sender, EventArgs e)
+        {
+            TelaCheia.IsVisible = false;
+            FrameImagemTelaCheia.IsVisible = false;
+            ImagemTelaCheia.IsVisible = false;
+        }
     }
 }
 

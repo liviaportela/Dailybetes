@@ -15,7 +15,7 @@
         <!--Uploads-->
         <StackLayout RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=grid_titulo, Property=Height, Factor=1, Constant=10}">
-            <ScrollView HeightRequest="650">
+            <ScrollView HeightRequest="678">
                 <StackLayout>
                     <Frame CornerRadius="15" BackgroundColor="#9ABEE2" Margin="20,5,20,0">
                         <StackLayout>
@@ -58,10 +58,14 @@
                                                 <Label Grid.Row="0" Grid.Column="0" x:Name="btm_l" Text="{Binding upload}" Margin="0,0,0,0" TextColor="White" BackgroundColor="Transparent" FontSize="17" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
                                                 <Label Grid.Row="0" Grid.Column="1" Text="{Binding data}" TextColor="White" Margin="0,3,0,0" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
                                             </Grid>
-                                            
+
                                         </Frame>
                                         <Frame Margin="0,-35,0,0" CornerRadius="20" Background="#689dd3" HeightRequest="400">
-                                            <Image Source="{Binding link}" Margin="0" Scale="1" Aspect="AspectFill" HorizontalOptions="Center" WidthRequest="200" HeightRequest="300"/>
+                                            <Image Source="{Binding link}" Margin="0" Scale="1" Aspect="AspectFill" HorizontalOptions="Center" WidthRequest="200" HeightRequest="300">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="AbrirImagemTelaCheia"/>
+                                                </Image.GestureRecognizers>
+                                            </Image>
                                         </Frame>
                                     </StackLayout>
                                 </DataTemplate>
@@ -85,7 +89,7 @@
                     </Grid>
                     <StackLayout x:Name="lista_up_h2" HeightRequest="400">
                         <CollectionView x:Name="CVLista_uploads" Margin="20" HorizontalOptions="CenterAndExpand" ItemsSource="{Binding Uploads_list_object2}">
-                            <CollectionView.ItemTemplate>   
+                            <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout Margin="10">
                                         <Frame BackgroundColor="#367DC5" HasShadow="False" CornerRadius="10" Padding="0,5,0,30">
@@ -100,10 +104,13 @@
                                                 <Label Grid.Row="0" Grid.Column="0" Text="{Binding upload2}" TextColor="White" FontSize="16" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
                                                 <Label Grid.Row="0" Grid.Column="1" Text="{Binding data2}" TextColor="White" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
                                             </Grid>
-
                                         </Frame>
                                         <Frame Margin="0,-34,0,0" CornerRadius="20" Background="#689dd3" HeightRequest="400">
-                                            <Image Source="{Binding link2}" Margin="0" Scale="1" Aspect="AspectFill" HorizontalOptions="Center" WidthRequest="200" HeightRequest="300"/>
+                                            <Image Source="{Binding link2}" Margin="0" Scale="1" Aspect="AspectFill" HorizontalOptions="Center" WidthRequest="200" HeightRequest="300">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="AbrirImagemTelaCheia"/>
+                                                </Image.GestureRecognizers>
+                                            </Image>
                                         </Frame>
                                     </StackLayout>
                                 </DataTemplate>
@@ -186,5 +193,26 @@
                 <local:CustomButton BackgroundColor="White" FontSize="16" TextColor="#545454" ImageSource="botao_logoff" Text="Sair" HorizontalOptions="StartAndExpand" Clicked="Btn_sair"/>
             </StackLayout>
         </Grid>
+
+        <BoxView BackgroundColor="#292929" Opacity="0.7" x:Name="TelaCheia" IsVisible="false" VerticalOptions="FillAndExpand"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="FecharImagemTelaCheia"/>
+            </BoxView.GestureRecognizers>
+        </BoxView>
+
+        <Frame BackgroundColor="Transparent" CornerRadius="20" Padding="20" VerticalOptions="FillAndExpand" x:Name="FrameImagemTelaCheia" IsVisible="false"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" 
+            RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}">
+            <Image BackgroundColor="Transparent" x:Name="ImagemTelaCheia" Aspect="AspectFit" IsVisible="false">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="FecharImagemTelaCheia"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Frame>
     </RelativeLayout>
 </ContentPage>

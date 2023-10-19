@@ -101,7 +101,7 @@ namespace App_dailybetes3.Paginas
                 {
                     Color = SKColor.Parse("#DC143C"),
                     Label ="SEG",
-                    ValueLabel = User.valores_glicemia_diariamente[0].ToString()
+                    ValueLabel = User.valores_glicemia_semanalmente[0].ToString()
                 },
                 new Entry(Int32.Parse(User.valores_glicemia_semanalmente[1]))
                 {

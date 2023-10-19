@@ -54,7 +54,6 @@ namespace ProjetoBase.Models
         public int Usuario_existente { get; set; }
         public static string Num_compromissos { get; set; }
 
-
         public bool Consulta(string pEmail, string pSenha)
         {
             Ret = false;
@@ -83,6 +82,7 @@ namespace ProjetoBase.Models
             Conn.Close();
             return Ret;
         }
+
         public bool ConsultarUsuarioCadastrado(string pEmail)
         {
             Usuario_existente = 0;
@@ -113,6 +113,7 @@ namespace ProjetoBase.Models
             Conn.Close();
             return Ret;
         }
+
         public bool CadastrarUsuarios(string pemail, string psenha)
         {
 
@@ -150,6 +151,7 @@ namespace ProjetoBase.Models
                 return Ret;
             }
         }
+
         public void Pesquisar_id_usuario()
         {
             Ret = false;
@@ -168,6 +170,7 @@ namespace ProjetoBase.Models
             Dr.Close();
             Ret = false;
         }
+
         //refeições
         public bool Cadastrar_refeicoes(string p_hora, string p_descricao)
         {
@@ -184,6 +187,7 @@ namespace ProjetoBase.Models
             Conn.Close();
             return Ret;
         }
+
         public bool Consulta_refeicoes()
         {
             dic_data_refeicao.Clear();
@@ -212,6 +216,7 @@ namespace ProjetoBase.Models
             Conn.Close();
             return Ret;
         }
+
         public bool Cadastrar_resultado_glicemia(string hora, string data_glicemia, int nivel)
         {
             Ret = false;
@@ -225,6 +230,7 @@ namespace ProjetoBase.Models
             Conn.Close();
             return Ret;
         }
+
         //Compromissos
         public bool Cadastrar_compromisso(string hora, string data, string compromisso_texto)
         {
@@ -244,6 +250,7 @@ namespace ProjetoBase.Models
             Conn.Close();
             return Ret;
         }
+
         public bool Consulta_num_compromissos_hoje()
         {
             Ret = false;

@@ -118,3 +118,4 @@ C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3
 C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Debug\netstandard2.0\App_dailybetes3.dll
 C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Debug\netstandard2.0\refint\App_dailybetes3.dll
 C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Debug\netstandard2.0\App_dailybetes3.pdb
+C:\Users\livia\Source\Repos\App_dailybetes_certo\App_dailybetes3\App_dailybetes3\obj\Debug\netstandard2.0\Paginas\SplashPage.xaml.g.cs
