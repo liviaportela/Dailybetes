@@ -83,7 +83,7 @@
                             <Label Text="SINTOMAS" TextColor="#023170" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="16"/>
                         </Frame>
                     </Grid>
-                    
+
                     <StackLayout x:Name="stack_notas" HeightRequest="400">
                         <CollectionView x:Name="CVLista2" Margin="25" HorizontalOptions="CenterAndExpand" ItemsSource="{Binding Lista_notas2}">
                             <CollectionView.ItemTemplate>
@@ -113,36 +113,38 @@
         </StackLayout>
 
         <!--TabbedPage-->
-        <StackLayout BackgroundColor="White" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
-                  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-90}">
-            <Grid Margin="0,15,0,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent" CornerRadius="20" Padding="0" HasShadow="False">
-                    <ImageButton Source="icon_home" Clicked="Tb_visaogeral" BackgroundColor="Transparent" Aspect="AspectFit"/>
-                </Frame>
-                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" CornerRadius="20" Padding="0" HasShadow="False">
-                    <ImageButton Source="icon_agenda" Clicked="Tb_calendario" BackgroundColor="Transparent" Aspect="AspectFit"/>
-                </Frame>
-                <Frame Grid.Row="0" Grid.Column="2" Scale="1.2" BackgroundColor="Transparent" CornerRadius="20" Padding="0" HasShadow="False">
-                    <ImageButton Source="icon_sintomas" Clicked="Tb_notas" BackgroundColor="Transparent" Aspect="AspectFit"/>
-                </Frame>
-                <Frame Grid.Row="0" Grid.Column="3" BackgroundColor="Transparent" CornerRadius="20" Padding="0" HasShadow="False">
-                    <ImageButton Source="icon_glicemia" Clicked="Tb_glicemia" BackgroundColor="Transparent" Aspect="AspectFit"/>
-                </Frame>
-                <Frame Grid.Row="0" Grid.Column="4" Scale="1.1" BackgroundColor="Transparent" CornerRadius="20" Padding="0" HasShadow="False">
-                    <ImageButton Source="icon_conteudo" Clicked="Tb_conteudo" BackgroundColor="Transparent" Aspect="AspectFit"/>
-                </Frame>
-            </Grid>
-        </StackLayout>
+        <Frame BackgroundColor="White" Padding="0,5,0,10" HasShadow="False" CornerRadius="30" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-90}">
+            <StackLayout BackgroundColor="White">
+                <Grid Margin="0,10,0,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent" CornerRadius="20" Padding="0" HasShadow="False">
+                        <ImageButton Source="icon_home" Clicked="Tb_visaogeral" BackgroundColor="Transparent" Aspect="AspectFit"/>
+                    </Frame>
+                    <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" CornerRadius="20" Padding="0" HasShadow="False">
+                        <ImageButton Source="icon_agenda" Clicked="Tb_calendario" BackgroundColor="Transparent" Aspect="AspectFit"/>
+                    </Frame>
+                    <Frame Grid.Row="0" Grid.Column="2" Scale="1.2" BackgroundColor="Transparent" CornerRadius="20" Padding="0" HasShadow="False">
+                        <ImageButton Source="icon_sintomas" Clicked="Tb_notas" BackgroundColor="Transparent" Aspect="AspectFit"/>
+                    </Frame>
+                    <Frame Grid.Row="0" Grid.Column="3" BackgroundColor="Transparent" CornerRadius="20" Padding="0" HasShadow="False">
+                        <ImageButton Source="icon_glicemia" Clicked="Tb_glicemia" BackgroundColor="Transparent" Aspect="AspectFit"/>
+                    </Frame>
+                    <Frame Grid.Row="0" Grid.Column="4" Scale="1.1" BackgroundColor="Transparent" CornerRadius="20" Padding="0" HasShadow="False">
+                        <ImageButton Source="icon_conteudo" Clicked="Tb_conteudo" BackgroundColor="Transparent" Aspect="AspectFit"/>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+        </Frame>
 
         <BoxView BackgroundColor="#292929" Opacity="0.7" x:Name="coverLayout" IsVisible="false" VerticalOptions="FillAndExpand"
                  RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"

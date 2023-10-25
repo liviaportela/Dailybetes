@@ -28,14 +28,12 @@ namespace App_dailybetes3.Paginas
 
                 if (User.Usuario_existente > 0)
                 {
-                    await DisplayAlert("Aviso", "Usuário já existente", "OK");
                     User.Usuario_existente = 0;
                 }
                 else
                 {
                     await Navigation.PushAsync(new Login());
                 }
-
             }
             else
             {

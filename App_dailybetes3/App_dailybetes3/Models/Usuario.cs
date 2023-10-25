@@ -74,7 +74,6 @@ namespace ProjetoBase.Models
                         Email = Dr["email"].ToString();
                         Senha = Dr["senha"].ToString();
                         Ret = true;
-
                     }
                 }
             }
@@ -116,7 +115,6 @@ namespace ProjetoBase.Models
 
         public bool CadastrarUsuarios(string pemail, string psenha)
         {
-
             if (!EmailValidator.IsEmailValid(pemail))
             {
                 Device.BeginInvokeOnMainThread(async () =>
@@ -127,28 +125,47 @@ namespace ProjetoBase.Models
             }
             else
             {
-                // Gere o hash da senha
-                string senhaHash = PasswordHasher.HashPassword(psenha);
-                ConsultarUsuarioCadastrado(pemail);
-
-                if (Usuario_existente == 0)
+                // Verifique se a senha atende aos critérios
+                if (!RequisitosSenha.SenhaAtendeRequisitos(psenha))
                 {
-                    if (!Conecta())
+                    Device.BeginInvokeOnMainThread(async () =>
                     {
-                        return Ret;
-                    }
-                    StrQuery = "INSERT INTO usuarios (email, senha, data_cadastro) VALUES ('" + pemail + "', '" + senhaHash + "', curdate())";
-                    MySqlCommand cmd = new MySqlCommand(StrQuery, Conn);
-                    cmd.ExecuteReader();
-                    Conn.Close();
-                    Ret = true;
-
+                        await Application.Current.MainPage.DisplayAlert("Erro", "A senha deve conter pelo menos 8 caracteres, incluindo pelo menos um símbolo, um número e uma letra maiúscula.", "OK");
+                    });
+                    return false;
                 }
                 else
                 {
-                    return true;
-                }
-                return Ret;
+                    // Gere o hash da senha
+                    string senhaHash = PasswordHasher.HashPassword(psenha);
+                    ConsultarUsuarioCadastrado(pemail);
+
+                    if (Usuario_existente == 0)
+                    {
+                        if (!Conecta())
+                        {
+                            return Ret;
+                        }
+                        StrQuery = "INSERT INTO usuarios (email, senha, data_cadastro) VALUES ('" + pemail + "', '" + senhaHash + "', curdate())";
+                        MySqlCommand cmd = new MySqlCommand(StrQuery, Conn);
+                        cmd.ExecuteReader();
+                        Conn.Close();
+                        Ret = true;
+                        Device.BeginInvokeOnMainThread(async () =>
+                        {
+                            await Application.Current.MainPage.DisplayAlert("Aviso", "Usuário cadastrado", "OK");
+                        });
+                    }
+                    else
+                    {
+                        Device.BeginInvokeOnMainThread(async () =>
+                        {
+                            await Application.Current.MainPage.DisplayAlert("Erro", "Usuário já existente", "OK");
+                        });
+                        return true;
+                    }
+                    return Ret;
+                }   
             }
         }
 

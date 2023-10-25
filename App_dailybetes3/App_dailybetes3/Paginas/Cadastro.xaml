@@ -23,10 +23,10 @@
                 <Entry x:Name="entry_nome_cadastrar" Placeholder="Email" PlaceholderColor="Gray" TextColor="Black" ClearButtonVisibility="WhileEditing" Keyboard="Email" Margin="10,0,0,0"/>
             </Frame>
             <Frame Grid.Row="5" CornerRadius="12" BorderColor="#737373" HasShadow="True" Padding="0" Margin="45,40,45,0">
-                <Entry x:Name="entry_senha_cadastrar" Placeholder="Senha" PlaceholderColor="Gray" TextColor="Black" ClearButtonVisibility="WhileEditing" Keyboard="Numeric" IsPassword="True" Margin="10,0,0,0"/>
+                <Entry x:Name="entry_senha_cadastrar" Placeholder="Senha" PlaceholderColor="Gray" TextColor="Black" ClearButtonVisibility="WhileEditing" IsPassword="True" Margin="10,0,0,0"/>
             </Frame>
             <Frame Grid.Row="6" CornerRadius="12" BorderColor="#737373" HasShadow="True" Padding="0" Margin="45,40,45,0">
-                <Entry x:Name="entry_senha_confirm" Placeholder="Confirmar senha" PlaceholderColor="Gray" TextColor="Black" ClearButtonVisibility="WhileEditing" Keyboard="Numeric" IsPassword="True" Margin="10,0,0,0"/>
+                <Entry x:Name="entry_senha_confirm" Placeholder="Confirmar senha" PlaceholderColor="Gray" TextColor="Black" ClearButtonVisibility="WhileEditing" IsPassword="True" Margin="10,0,0,0"/>
             </Frame>
         </Grid>
         <Button x:Name="botao" Margin="45,40,45,30" CornerRadius="12" Text="CRIAR" FontSize="19" TextColor="White" FontAttributes="Bold" Background="#367DC5" Clicked="Btm_cadastrar_usuario"/>

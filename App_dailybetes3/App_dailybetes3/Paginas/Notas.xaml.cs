@@ -4,6 +4,7 @@ using ProjetoBase.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +16,7 @@ namespace App_dailybetes3.Paginas
         Usuario User = new Usuario();
         ObservableCollection<Lista_notas> notas = new ObservableCollection<Lista_notas>();
         ObservableCollection<Lista_notas2> notas2 = new ObservableCollection<Lista_notas2>();
+
         public Notas()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace App_dailybetes3.Paginas
             User.Consulta_todas_notas();
             CarregarListaNotas();
         }
+
         public void CarregarListaNotas()
         {
             User.Consulta_notas();
@@ -53,9 +56,7 @@ namespace App_dailybetes3.Paginas
             {
                 stack_notas.HeightRequest = 0;
             }
-
         }
-
 
         //barra de navegação entre as páginas
         private void Tb_visaogeral(object sender, EventArgs e)
