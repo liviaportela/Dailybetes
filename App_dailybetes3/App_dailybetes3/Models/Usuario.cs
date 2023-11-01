@@ -15,6 +15,9 @@ namespace ProjetoBase.Models
     public class Usuario : Conexao
     {
         public List<string> valores_glicemia_diariamente = new List<string>();
+        public List<string> valores_glicemia_diariamente2 = new List<string>();
+        public List<string> valores_glicemia_diariamente_hora = new List<string>();
+        public IDictionary<string, string> glicemia_dic = new Dictionary<string, string>();
         public List<string> valores_glicemia_semanalmente = new List<string>();
         public List<string> valores_glicemia_mensalmente = new List<string>();
         public List<string> tarefas = new List<string>();
@@ -165,7 +168,7 @@ namespace ProjetoBase.Models
                         return true;
                     }
                     return Ret;
-                }   
+                }
             }
         }
 
@@ -202,8 +205,8 @@ namespace ProjetoBase.Models
             MySqlCommand cmd = new MySqlCommand(StrQuery, Conn);
             cmd.ExecuteReader();
             Conn.Close();
-            return Ret;
-        }
+            return Ret;
+        }
 
         public bool Consulta_refeicoes()
         {
@@ -425,6 +428,9 @@ namespace ProjetoBase.Models
         public bool Consulta_tabela_glicemia_diariamente()
         {
             valores_glicemia_diariamente.Clear();
+            valores_glicemia_diariamente2.Clear();
+            valores_glicemia_diariamente_hora.Clear();
+            glicemia_dic.Clear();
             Ret = false;
             if (!Conecta())//conecta == false
             {
@@ -432,20 +438,660 @@ namespace ProjetoBase.Models
             }
             var date_now_ = DateTime.Now;
             string data_atual = date_now_.Year + "-" + date_now_.Month + "-" + date_now_.Day;
-            StrQuery = "SELECT nivel_glicemia FROM tb_glicemia WHERE data = '" + data_atual + "'  and id_usuario = '" + Id_usuario + "'";
+            StrQuery = "SELECT nivel_glicemia, hora FROM tb_glicemia WHERE data = '" + data_atual + "'  and id_usuario = '" + Id_usuario + "'";
             MySqlCommand cmd = new MySqlCommand(StrQuery, Conn);
             Dr = cmd.ExecuteReader();
             while (Dr.Read())//vai para o próximo registro de dados
             {
-                valores_glicemia_diariamente.Add(Dr[0].ToString());
+                valores_glicemia_diariamente2.Add(Dr["nivel_glicemia"].ToString());
+                valores_glicemia_diariamente_hora.Add(Dr["hora"].ToString());
+                glicemia_dic.Add(Dr["hora"].ToString(), Dr["nivel_glicemia"].ToString());
             }
 
-            if (valores_glicemia_diariamente.Count < 6)
+            if (valores_glicemia_diariamente.Count() < 6)
             {
-                int valor_acressentar = 6 - valores_glicemia_diariamente.Count;
+                int valor_acressentar = 6 - valores_glicemia_diariamente.Count();
+                Console.WriteLine(valores_glicemia_diariamente.Count());
                 for (int i = 0; i <= valor_acressentar; i += 1)
                 {
                     valores_glicemia_diariamente.Add("0");
+                }
+            }
+
+            foreach (String strKey in glicemia_dic.Keys)
+            {
+                if (strKey == "08:00:00")
+                {
+                    valores_glicemia_diariamente[0] = glicemia_dic[strKey];
+                }
+
+                if (strKey == "10:00:00")
+                {
+                    valores_glicemia_diariamente[1] = glicemia_dic[strKey];
+                }
+
+                if (strKey == "11:30:00")
+                {
+                    valores_glicemia_diariamente[2] = glicemia_dic[strKey];
+                }
+
+                if (strKey == "12:30:00")
+                {
+                    valores_glicemia_diariamente[3] = glicemia_dic[strKey];
+                }
+
+                if (strKey == "18:30:00")
+                {
+                    valores_glicemia_diariamente[4] = glicemia_dic[strKey];
+                }
+
+                if (strKey == "22:00:00")
+                {
+                    valores_glicemia_diariamente[5] = glicemia_dic[strKey];
+                }
+
+
+            }
+
+
+            if (valores_glicemia_diariamente_hora.Count() > 7)
+            {
+                if (valores_glicemia_diariamente_hora.Count() == 1)
+                {
+                    if (valores_glicemia_diariamente.Count < 6)
+                    {
+                        int valor_acressentar = 6 - valores_glicemia_diariamente.Count();
+                        for (int i = 1; i <= valor_acressentar; i += 1)
+                        {
+                            valores_glicemia_diariamente.Add("0");
+                        }
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+
+                }
+
+
+                if (valores_glicemia_diariamente_hora.Count() == 2)
+                {
+                    if (valores_glicemia_diariamente.Count < 6)
+                    {
+                        int valor_acressentar = 6 - valores_glicemia_diariamente.Count();
+                        for (int i = 1; i <= valor_acressentar; i += 1)
+                        {
+                            valores_glicemia_diariamente.Add("0");
+                        }
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+
+                    if (valores_glicemia_diariamente_hora[1] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                }
+
+
+                if (valores_glicemia_diariamente_hora.Count() == 3)
+                {
+                    if (valores_glicemia_diariamente_hora[0] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+
+                    if (valores_glicemia_diariamente_hora[1] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+
+                    if (valores_glicemia_diariamente_hora[2] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                }
+
+
+                if (valores_glicemia_diariamente_hora.Count() == 4)
+                {
+                    if (valores_glicemia_diariamente.Count < 6)
+                    {
+                        int valor_acressentar = 6 - valores_glicemia_diariamente.Count();
+                        for (int i = 1; i <= valor_acressentar; i += 1)
+                        {
+                            valores_glicemia_diariamente.Add("0");
+                        }
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+
+                    if (valores_glicemia_diariamente_hora[1] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+
+                    if (valores_glicemia_diariamente_hora[2] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+
+                    if (valores_glicemia_diariamente_hora[3] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                    if (valores_glicemia_diariamente_hora[3] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                    if (valores_glicemia_diariamente_hora[3] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                    if (valores_glicemia_diariamente_hora[3] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                    if (valores_glicemia_diariamente_hora[3] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                }
+
+                if (valores_glicemia_diariamente_hora.Count() == 5)
+                {
+                    if (valores_glicemia_diariamente.Count < 6)
+                    {
+                        int valor_acressentar = 6 - valores_glicemia_diariamente.Count();
+                        for (int i = 1; i <= valor_acressentar; i += 1)
+                        {
+                            valores_glicemia_diariamente.Add("0");
+                        }
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+
+                    if (valores_glicemia_diariamente_hora[1] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+
+                    if (valores_glicemia_diariamente_hora[2] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+
+                    if (valores_glicemia_diariamente_hora[3] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                    if (valores_glicemia_diariamente_hora[3] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                    if (valores_glicemia_diariamente_hora[3] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                    if (valores_glicemia_diariamente_hora[3] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                    if (valores_glicemia_diariamente_hora[3] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+
+                    if (valores_glicemia_diariamente_hora[4] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[4] = (valores_glicemia_diariamente2[4]);
+                    }
+                    if (valores_glicemia_diariamente_hora[4] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[4] = (valores_glicemia_diariamente2[4]);
+                    }
+                    if (valores_glicemia_diariamente_hora[4] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[4] = (valores_glicemia_diariamente2[4]);
+                    }
+                    if (valores_glicemia_diariamente_hora[4] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[4] = (valores_glicemia_diariamente2[4]);
+                    }
+                    if (valores_glicemia_diariamente_hora[4] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[4] = (valores_glicemia_diariamente2[4]);
+                    }
+                    if (valores_glicemia_diariamente_hora[4] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[4] = (valores_glicemia_diariamente2[4]);
+                    }
+                }
+
+                if (valores_glicemia_diariamente_hora.Count() == 6)
+                {
+                    if (valores_glicemia_diariamente.Count < 6)
+                    {
+                        int valor_acressentar = 6 - valores_glicemia_diariamente.Count();
+                        for (int i = 1; i <= valor_acressentar; i += 1)
+                        {
+                            valores_glicemia_diariamente.Add("0");
+                        }
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+                    if (valores_glicemia_diariamente_hora[0] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[0] = (valores_glicemia_diariamente2[0]);
+                    }
+
+                    if (valores_glicemia_diariamente_hora[1] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+                    if (valores_glicemia_diariamente_hora[1] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[1] = (valores_glicemia_diariamente2[1]);
+                    }
+
+                    if (valores_glicemia_diariamente_hora[2] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[2] = (valores_glicemia_diariamente2[2]);
+                    }
+
+                    if (valores_glicemia_diariamente_hora[3] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                    if (valores_glicemia_diariamente_hora[3] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                    if (valores_glicemia_diariamente_hora[3] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                    if (valores_glicemia_diariamente_hora[2] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                    if (valores_glicemia_diariamente_hora[3] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+                    if (valores_glicemia_diariamente_hora[3] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[3] = (valores_glicemia_diariamente2[3]);
+                    }
+
+                    if (valores_glicemia_diariamente_hora[4] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[4] = (valores_glicemia_diariamente2[4]);
+                    }
+                    if (valores_glicemia_diariamente_hora[4] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[4] = (valores_glicemia_diariamente2[4]);
+                    }
+                    if (valores_glicemia_diariamente_hora[4] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[4] = (valores_glicemia_diariamente2[4]);
+                    }
+                    if (valores_glicemia_diariamente_hora[4] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[4] = (valores_glicemia_diariamente2[4]);
+                    }
+                    if (valores_glicemia_diariamente_hora[4] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[4] = (valores_glicemia_diariamente2[4]);
+                    }
+                    if (valores_glicemia_diariamente_hora[4] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[4] = (valores_glicemia_diariamente2[4]);
+                    }
+
+                    if (valores_glicemia_diariamente_hora[5] == "08:00:00")
+                    {
+                        valores_glicemia_diariamente[5] = (valores_glicemia_diariamente2[5]);
+                    }
+                    if (valores_glicemia_diariamente_hora[5] == "10:00:00")
+                    {
+                        valores_glicemia_diariamente[5] = (valores_glicemia_diariamente2[5]);
+                    }
+                    if (valores_glicemia_diariamente_hora[5] == "11:30:00")
+                    {
+                        valores_glicemia_diariamente[5] = (valores_glicemia_diariamente2[5]);
+                    }
+                    if (valores_glicemia_diariamente_hora[5] == "12:30:00")
+                    {
+                        valores_glicemia_diariamente[5] = (valores_glicemia_diariamente2[5]);
+                    }
+                    if (valores_glicemia_diariamente_hora[5] == "18:30:00")
+                    {
+                        valores_glicemia_diariamente[5] = (valores_glicemia_diariamente2[5]);
+                    }
+                    if (valores_glicemia_diariamente_hora[5] == "20:00:00")
+                    {
+                        valores_glicemia_diariamente[5] = (valores_glicemia_diariamente2[5]);
+                    }
+                }
+            }
+            else
+            {
+                if (valores_glicemia_diariamente.Count > 7)
+                {
+                    int valor_acressentar = 6 - valores_glicemia_diariamente.Count;
+                    for (int i = 1; i <= valor_acressentar; i += 1)
+                    {
+                        valores_glicemia_diariamente.Add("0");
+                    }
                 }
             }
             Ret = true;
