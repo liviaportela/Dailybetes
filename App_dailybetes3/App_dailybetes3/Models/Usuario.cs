@@ -1240,6 +1240,7 @@ namespace ProjetoBase.Models
             Dr.Close();
             return Ret = true;
         }
+
         public bool Consulta_tabela_glicemia_mensalmente()
         {
             Ret = false;
@@ -1472,6 +1473,7 @@ namespace ProjetoBase.Models
             Conn.Close();
             return Ret;
         }
+
         public bool Consulta_arquivos_diarios()
         {
             arquivos_diarios.Clear();
@@ -1577,7 +1579,6 @@ namespace ProjetoBase.Models
             Dr.Close();
             Conn.Close();
             return Ret;
-
         }
 
         public bool Consulta_insulina()

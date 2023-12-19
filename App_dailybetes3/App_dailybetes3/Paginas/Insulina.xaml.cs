@@ -49,8 +49,8 @@ namespace App_dailybetes3.Paginas
             {
                 stack_insulinas.HeightRequest = 0;
             }
-
         }
+
         //barra de navegação entre as páginas
         private void Tb_visaogeral(object sender, EventArgs e)
         {

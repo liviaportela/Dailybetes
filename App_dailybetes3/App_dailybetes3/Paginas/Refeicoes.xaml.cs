@@ -45,9 +45,9 @@ namespace App_dailybetes3.Paginas
                 {
                     jantar.Text = User.dic_data_refeicao[strKey];
                 }
-
             }
         }
+
         //Tabbed Page
         private void Tb_visaogeral(object sender, EventArgs e)
         {
