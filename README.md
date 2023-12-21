@@ -1,6 +1,6 @@
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=5c74dc&height=120&section=header"/>
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=377dc5&height=120&section=header"/>
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com/?color=5c74dc&size=35&center=true&vCenter=true&width=1000&lines=Welcome+to+the+Dailybetes+App+☝️🩸)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com/?color=377dc5&size=35&center=true&vCenter=true&width=1000&lines=Welcome+to+the+Dailybetes+App+☝️🩸)](https://git.io/typing-svg)
 
 </br>
 <div>
@@ -57,4 +57,4 @@ O resultado desse esforço conjunto é um aplicativo mobile de teor administrati
  </tr>
 </table>
 
-<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=5c74dc&height=120&section=footer"/>
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=377dc5&height=120&section=footer"/>
